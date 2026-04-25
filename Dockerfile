@@ -1,5 +1,5 @@
 # Playwright base image includes browser deps for Chromium
-FROM mcr.microsoft.com/playwright:v1.53.0-jammy
+FROM mcr.microsoft.com/playwright:v1.59.1-jammy
 
 WORKDIR /app
 
