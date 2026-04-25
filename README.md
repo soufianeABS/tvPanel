@@ -16,16 +16,28 @@ npx playwright install chromium
 npm run cli
 ```
 
-## Generate session state (for Fly)
+## Optional: 2Captcha automation (headless login)
 
-Use this once when you need to refresh unattended auth:
+For unattended headless login, enable 2Captcha for GeeTest v4:
+
+1. Create a [2Captcha](https://2captcha.com/) account and get your API key.
+2. Set environment variables:
 
 ```bash
-npm run save-state
+TVPLUS_CAPTCHA_PROVIDER=2captcha
+TVPLUS_CAPTCHA_API_KEY=your_key_here
 ```
 
-It opens the login page in a visible browser. Complete login + captcha manually, then press Enter in terminal.
-The script writes `tvplus-storage-state.json` and prints the `fly secrets set` command for `TVPLUS_STORAGE_STATE_JSON`.
+Optional tuning:
+
+```bash
+TVPLUS_CAPTCHA_TIMEOUT_MS=180000
+TVPLUS_CAPTCHA_POLL_MS=5000
+```
+
+Notes:
+- This is paid per solve and can be unreliable depending on provider response quality.
+- Use only if allowed by your provider terms and local regulations.
 
 ## HTTP API (Fly.io / Docker)
 
@@ -77,7 +89,7 @@ One-time setup:
    - `FLY_API_TOKEN` = token from step 3.
 5. Push to `main` and GitHub Actions will run `flyctl deploy --remote-only`.
 
-**Captcha:** the panel login uses GeeTest. Headless runs on Fly cannot solve the captcha without extra integration (e.g. session cookies from a manual login, or a third-party solver). For production you will likely need a different auth strategy or to run the browser with human-in-the-loop outside Fly.
+**Captcha:** the panel login uses GeeTest. In headless mode, configure `TVPLUS_CAPTCHA_PROVIDER=2captcha` and `TVPLUS_CAPTCHA_API_KEY`, or run headful with manual captcha solving.
 
 ### Docker (local)
 
@@ -101,8 +113,10 @@ Copy `.env.example` to `.env` and adjust.
 | Variable | Meaning |
 |----------|---------|
 | `TVPLUS_USERNAME` / `TVPLUS_PASSWORD` | Login |
-| `TVPLUS_STORAGE_STATE_JSON` | Logged-in Playwright storage state JSON for unattended API runs (bypasses captcha login) |
-| `TVPLUS_SESSION_COOKIE_HEADER` | Alternative to storage state: raw `Cookie` header from a logged-in browser session |
+| `TVPLUS_CAPTCHA_PROVIDER` | Set `2captcha` to enable automated GeeTest solving during login |
+| `TVPLUS_CAPTCHA_API_KEY` | 2Captcha API key (required when provider is `2captcha`) |
+| `TVPLUS_CAPTCHA_TIMEOUT_MS` | Max wait time for captcha solve result (default `180000`) |
+| `TVPLUS_CAPTCHA_POLL_MS` | Poll interval for captcha result (default `5000`) |
 | `HEADLESS` | `true` only if you do not need captcha UI |
 | `TVPLUS_SKIP_ADD_LINE` | `true` to stop after login |
 | `TVPLUS_ADDNEW_URL` | Default `https://tvpluspanel.ru/addnew?t=lines` |
@@ -117,5 +131,5 @@ Copy `.env.example` to `.env` and adjust.
 Notes:
 
 - Captcha must still be solved manually in the browser when `HEADLESS=false`.
-- In headless API mode, `/creatTestDino` now tries existing session auth first. If session is expired and no interactive browser is available, provide `TVPLUS_STORAGE_STATE_JSON` or `TVPLUS_SESSION_COOKIE_HEADER`.
+- In headless API mode, `/creatTestDino` requires `TVPLUS_CAPTCHA_PROVIDER=2captcha` + `TVPLUS_CAPTCHA_API_KEY`.
 - The UI does not paste an M3U URL on this page; it creates a **line** with username in `#add_mac` and packages in `bouq_list[]`, matching your saved HTML.

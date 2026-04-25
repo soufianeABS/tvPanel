@@ -14,8 +14,10 @@ const PANEL_PASSWORD = process.env.TVPLUS_PASSWORD || "Azerty_0";
 const LINE_SUBSCRIPTION = process.env.TVPLUS_LINE_SUBSCRIPTION ?? "5";
 const LINE_COUNTRY = process.env.TVPLUS_LINE_COUNTRY ?? "";
 const LINE_NOTES = process.env.TVPLUS_LINE_NOTES || "";
-const SESSION_COOKIE_HEADER = process.env.TVPLUS_SESSION_COOKIE_HEADER || "";
-const STORAGE_STATE_JSON = process.env.TVPLUS_STORAGE_STATE_JSON || "";
+const CAPTCHA_PROVIDER = (process.env.TVPLUS_CAPTCHA_PROVIDER || "").toLowerCase();
+const CAPTCHA_API_KEY = process.env.TVPLUS_CAPTCHA_API_KEY || "";
+const CAPTCHA_TIMEOUT_MS = Number(process.env.TVPLUS_CAPTCHA_TIMEOUT_MS || "180000");
+const CAPTCHA_POLL_MS = Number(process.env.TVPLUS_CAPTCHA_POLL_MS || "5000");
 
 /**
  * From a get.php (or similar) URL, return panel host + credentials.
@@ -57,38 +59,160 @@ async function setNativeSelectAndNotify(page, selector, value) {
   );
 }
 
-async function login(page) {
+function getCaptchaIdFromHtml(html) {
+  const patterns = [
+    /captchaId\s*[:=]\s*["']([^"']+)["']/i,
+    /captcha_id\s*[:=]\s*["']([^"']+)["']/i,
+    /data-captchaid=["']([^"']+)["']/i
+  ];
+  for (const pattern of patterns) {
+    const m = html.match(pattern);
+    if (m?.[1]) return m[1];
+  }
+  return "";
+}
+
+async function detectGeeTestCaptchaId(page) {
+  const fromDom = await page.evaluate(() => {
+    const root = document.querySelector("#captcha");
+    if (!root) return "";
+    return (
+      root.getAttribute("data-captchaid") ||
+      root.getAttribute("data-captcha-id") ||
+      root.getAttribute("captcha-id") ||
+      ""
+    );
+  });
+  if (fromDom) return fromDom;
+  const html = await page.content();
+  return getCaptchaIdFromHtml(html);
+}
+
+async function request2CaptchaGeeTestV4({ captchaId, pageUrl }) {
+  const submitUrl = new URL("https://2captcha.com/in.php");
+  submitUrl.searchParams.set("key", CAPTCHA_API_KEY);
+  submitUrl.searchParams.set("method", "geetest_v4");
+  submitUrl.searchParams.set("captcha_id", captchaId);
+  submitUrl.searchParams.set("pageurl", pageUrl);
+  submitUrl.searchParams.set("json", "1");
+
+  const submitRes = await fetch(submitUrl);
+  const submitJson = await submitRes.json();
+  if (submitJson.status !== 1 || !submitJson.request) {
+    throw new Error(`2Captcha submit failed: ${submitJson.request || "unknown error"}`);
+  }
+
+  const captchaRequestId = submitJson.request;
+  const startedAt = Date.now();
+  while (Date.now() - startedAt < CAPTCHA_TIMEOUT_MS) {
+    await new Promise((resolve) => setTimeout(resolve, CAPTCHA_POLL_MS));
+    const pollUrl = new URL("https://2captcha.com/res.php");
+    pollUrl.searchParams.set("key", CAPTCHA_API_KEY);
+    pollUrl.searchParams.set("action", "get");
+    pollUrl.searchParams.set("id", captchaRequestId);
+    pollUrl.searchParams.set("json", "1");
+
+    const pollRes = await fetch(pollUrl);
+    const pollJson = await pollRes.json();
+    if (pollJson.status === 1 && pollJson.request) {
+      return pollJson.request;
+    }
+    if (pollJson.request !== "CAPCHA_NOT_READY") {
+      throw new Error(`2Captcha solve failed: ${pollJson.request || "unknown error"}`);
+    }
+  }
+
+  throw new Error("2Captcha solve timeout.");
+}
+
+async function solveCaptchaWith2Captcha(page) {
+  if (!CAPTCHA_API_KEY) {
+    throw new Error("TVPLUS_CAPTCHA_PROVIDER=2captcha requires TVPLUS_CAPTCHA_API_KEY.");
+  }
+  const captchaId = await detectGeeTestCaptchaId(page);
+  if (!captchaId) {
+    throw new Error("Could not detect GeeTest captcha_id on login page.");
+  }
+  console.log(`Using 2Captcha GeeTest v4 solver (captcha_id=${captchaId}).`);
+  const solution = await request2CaptchaGeeTestV4({
+    captchaId,
+    pageUrl: page.url()
+  });
+
+  const captchaOutput = solution.captcha_output;
+  const lotNumber = solution.lot_number;
+  const passToken = solution.pass_token;
+  const genTime = solution.gen_time;
+  if (!captchaOutput || !lotNumber || !passToken || !genTime) {
+    throw new Error("2Captcha returned incomplete GeeTest response payload.");
+  }
+
+  await page.evaluate(
+    ({ lot, output, token, genTimeValue }) => {
+      const lotInput = document.querySelector("#lot_number");
+      const outputInput = document.querySelector("#captcha_output");
+      const tokenInput = document.querySelector("#pass_token");
+      const genTimeInput = document.querySelector("#gen_time");
+      if (!lotInput || !outputInput || !tokenInput || !genTimeInput) {
+        throw new Error("Missing one or more captcha hidden inputs.");
+      }
+      lotInput.value = lot;
+      outputInput.value = output;
+      tokenInput.value = token;
+      genTimeInput.value = String(genTimeValue);
+    },
+    {
+      lot: lotNumber,
+      output: captchaOutput,
+      token: passToken,
+      genTimeValue: genTime
+    }
+  );
+  console.log("Injected GeeTest tokens from 2Captcha.");
+}
+
+async function loginWithCaptcha(page, allowInteractiveLogin) {
   console.log(`Opening ${LOGIN_URL} ...`);
   await page.goto(LOGIN_URL, { waitUntil: "domcontentloaded" });
 
   await page.fill("#uname", PANEL_USERNAME);
   await page.fill("#upass", PANEL_PASSWORD);
-
   console.log("Credentials filled.");
-  await page.waitForSelector("#captcha .geetest_btn_click, #captcha [aria-label='Click to verify']", {
-    timeout: 15000
-  });
-  await page.click("#captcha .geetest_btn_click, #captcha [aria-label='Click to verify']");
-  console.log("Clicked captcha verify button.");
-  console.log("Complete the GeeTest challenge manually in the opened browser.");
-  console.log("Waiting for captcha token, then login will be submitted automatically...");
 
-  await page.waitForFunction(
-    () => {
-      const lot = document.querySelector("#lot_number");
-      const output = document.querySelector("#captcha_output");
-      const token = document.querySelector("#pass_token");
-      return Boolean(
-        lot &&
-          output &&
-          token &&
-          lot.value.trim() &&
-          output.value.trim() &&
-          token.value.trim()
+  await page.waitForSelector("#captcha", { timeout: 20000 });
+  if (CAPTCHA_PROVIDER === "2captcha") {
+    await solveCaptchaWith2Captcha(page);
+  } else {
+    if (!allowInteractiveLogin) {
+      throw new Error(
+        "Session expired and interactive captcha login is disabled in headless mode. " +
+          "Configure TVPLUS_CAPTCHA_PROVIDER=2captcha (with TVPLUS_CAPTCHA_API_KEY), or run non-headless and solve captcha manually."
       );
-    },
-    { timeout: 120000 }
-  );
+    }
+    await page.waitForSelector("#captcha .geetest_btn_click, #captcha [aria-label='Click to verify']", {
+      timeout: 15000
+    });
+    await page.click("#captcha .geetest_btn_click, #captcha [aria-label='Click to verify']");
+    console.log("Clicked captcha verify button.");
+    console.log("Complete the GeeTest challenge manually in the opened browser.");
+    console.log("Waiting for captcha token, then login will be submitted automatically...");
+    await page.waitForFunction(
+      () => {
+        const lot = document.querySelector("#lot_number");
+        const output = document.querySelector("#captcha_output");
+        const token = document.querySelector("#pass_token");
+        return Boolean(
+          lot &&
+            output &&
+            token &&
+            lot.value.trim() &&
+            output.value.trim() &&
+            token.value.trim()
+        );
+      },
+      { timeout: 120000 }
+    );
+  }
 
   try {
     await page.click("button[name='btn-login']", { timeout: 10000 });
@@ -98,10 +222,7 @@ async function login(page) {
       if (form) form.submit();
     });
   }
-
-  await page.waitForURL((u) => !/\/login/i.test(u.pathname + u.search), {
-    timeout: 120000
-  });
+  await page.waitForURL((u) => !/\/login/i.test(u.pathname + u.search), { timeout: 120000 });
   console.log(`Logged in. Current URL: ${page.url()}`);
 }
 
@@ -114,51 +235,13 @@ function isLoginUrl(urlLike) {
   }
 }
 
-function parseCookieHeader(cookieHeader) {
-  const pairs = String(cookieHeader || "")
-    .split(";")
-    .map((part) => part.trim())
-    .filter(Boolean)
-    .map((part) => {
-      const idx = part.indexOf("=");
-      if (idx <= 0) return null;
-      return {
-        name: part.slice(0, idx).trim(),
-        value: part.slice(idx + 1).trim()
-      };
-    })
-    .filter(Boolean);
-  return pairs;
-}
-
-async function applySessionCookies(context) {
-  const cookies = parseCookieHeader(SESSION_COOKIE_HEADER);
-  if (!cookies.length) return;
-  await context.addCookies(
-    cookies.map((cookie) => ({
-      ...cookie,
-      domain: "tvpluspanel.ru",
-      path: "/",
-      httpOnly: false,
-      secure: true
-    }))
-  );
-  console.log(`Loaded ${cookies.length} cookies from TVPLUS_SESSION_COOKIE_HEADER.`);
-}
-
 async function ensureAuthenticated(page, allowInteractiveLogin) {
   await page.goto(ADDNEW_LINES_URL, { waitUntil: "domcontentloaded" });
   if (!isLoginUrl(page.url())) {
     console.log("Session is already authenticated.");
     return;
   }
-  if (!allowInteractiveLogin) {
-    throw new Error(
-      "Session expired and interactive captcha login is disabled in headless mode. " +
-        "Set TVPLUS_STORAGE_STATE_JSON or TVPLUS_SESSION_COOKIE_HEADER with a valid logged-in session."
-    );
-  }
-  await login(page);
+  await loginWithCaptcha(page, allowInteractiveLogin);
 }
 
 /**
@@ -274,17 +357,7 @@ export async function runAutomation(opts = {}) {
       : Number(process.env.TVPLUS_KEEP_OPEN_MS || "0");
 
   const browser = await chromium.launch({ headless, slowMo: headless ? 0 : 80 });
-  let storageState;
-  if (STORAGE_STATE_JSON) {
-    try {
-      storageState = JSON.parse(STORAGE_STATE_JSON);
-      console.log("Loaded storage state from TVPLUS_STORAGE_STATE_JSON.");
-    } catch (error) {
-      throw new Error(`Invalid TVPLUS_STORAGE_STATE_JSON: ${error?.message || String(error)}`);
-    }
-  }
-  const context = await browser.newContext(storageState ? { storageState } : undefined);
-  await applySessionCookies(context);
+  const context = await browser.newContext();
   const page = await context.newPage();
 
   try {
