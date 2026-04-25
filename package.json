@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "cli": "node login.js"
+    "cli": "node login.js",
+    "save-state": "node save-state.mjs"
   },
   "dependencies": {
     "dotenv": "^16.5.0",

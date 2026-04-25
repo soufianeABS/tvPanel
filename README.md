@@ -16,6 +16,17 @@ npx playwright install chromium
 npm run cli
 ```
 
+## Generate session state (for Fly)
+
+Use this once when you need to refresh unattended auth:
+
+```bash
+npm run save-state
+```
+
+It opens the login page in a visible browser. Complete login + captcha manually, then press Enter in terminal.
+The script writes `tvplus-storage-state.json` and prints the `fly secrets set` command for `TVPLUS_STORAGE_STATE_JSON`.
+
 ## HTTP API (Fly.io / Docker)
 
 `npm start` runs `server.mjs` on `PORT` (default **8080**).
