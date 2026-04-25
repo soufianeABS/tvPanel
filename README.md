@@ -90,6 +90,8 @@ Copy `.env.example` to `.env` and adjust.
 | Variable | Meaning |
 |----------|---------|
 | `TVPLUS_USERNAME` / `TVPLUS_PASSWORD` | Login |
+| `TVPLUS_STORAGE_STATE_JSON` | Logged-in Playwright storage state JSON for unattended API runs (bypasses captcha login) |
+| `TVPLUS_SESSION_COOKIE_HEADER` | Alternative to storage state: raw `Cookie` header from a logged-in browser session |
 | `HEADLESS` | `true` only if you do not need captcha UI |
 | `TVPLUS_SKIP_ADD_LINE` | `true` to stop after login |
 | `TVPLUS_ADDNEW_URL` | Default `https://tvpluspanel.ru/addnew?t=lines` |
@@ -104,4 +106,5 @@ Copy `.env.example` to `.env` and adjust.
 Notes:
 
 - Captcha must still be solved manually in the browser when `HEADLESS=false`.
+- In headless API mode, `/creatTestDino` now tries existing session auth first. If session is expired and no interactive browser is available, provide `TVPLUS_STORAGE_STATE_JSON` or `TVPLUS_SESSION_COOKIE_HEADER`.
 - The UI does not paste an M3U URL on this page; it creates a **line** with username in `#add_mac` and packages in `bouq_list[]`, matching your saved HTML.

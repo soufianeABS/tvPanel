@@ -14,6 +14,8 @@ const PANEL_PASSWORD = process.env.TVPLUS_PASSWORD || "Azerty_0";
 const LINE_SUBSCRIPTION = process.env.TVPLUS_LINE_SUBSCRIPTION ?? "5";
 const LINE_COUNTRY = process.env.TVPLUS_LINE_COUNTRY ?? "";
 const LINE_NOTES = process.env.TVPLUS_LINE_NOTES || "";
+const SESSION_COOKIE_HEADER = process.env.TVPLUS_SESSION_COOKIE_HEADER || "";
+const STORAGE_STATE_JSON = process.env.TVPLUS_STORAGE_STATE_JSON || "";
 
 /**
  * From a get.php (or similar) URL, return panel host + credentials.
@@ -101,6 +103,62 @@ async function login(page) {
     timeout: 120000
   });
   console.log(`Logged in. Current URL: ${page.url()}`);
+}
+
+function isLoginUrl(urlLike) {
+  try {
+    const u = new URL(urlLike);
+    return /\/login/i.test(u.pathname + u.search);
+  } catch {
+    return /\/login/i.test(String(urlLike || ""));
+  }
+}
+
+function parseCookieHeader(cookieHeader) {
+  const pairs = String(cookieHeader || "")
+    .split(";")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      const idx = part.indexOf("=");
+      if (idx <= 0) return null;
+      return {
+        name: part.slice(0, idx).trim(),
+        value: part.slice(idx + 1).trim()
+      };
+    })
+    .filter(Boolean);
+  return pairs;
+}
+
+async function applySessionCookies(context) {
+  const cookies = parseCookieHeader(SESSION_COOKIE_HEADER);
+  if (!cookies.length) return;
+  await context.addCookies(
+    cookies.map((cookie) => ({
+      ...cookie,
+      domain: "tvpluspanel.ru",
+      path: "/",
+      httpOnly: false,
+      secure: true
+    }))
+  );
+  console.log(`Loaded ${cookies.length} cookies from TVPLUS_SESSION_COOKIE_HEADER.`);
+}
+
+async function ensureAuthenticated(page, allowInteractiveLogin) {
+  await page.goto(ADDNEW_LINES_URL, { waitUntil: "domcontentloaded" });
+  if (!isLoginUrl(page.url())) {
+    console.log("Session is already authenticated.");
+    return;
+  }
+  if (!allowInteractiveLogin) {
+    throw new Error(
+      "Session expired and interactive captcha login is disabled in headless mode. " +
+        "Set TVPLUS_STORAGE_STATE_JSON or TVPLUS_SESSION_COOKIE_HEADER with a valid logged-in session."
+    );
+  }
+  await login(page);
 }
 
 /**
@@ -216,11 +274,21 @@ export async function runAutomation(opts = {}) {
       : Number(process.env.TVPLUS_KEEP_OPEN_MS || "0");
 
   const browser = await chromium.launch({ headless, slowMo: headless ? 0 : 80 });
-  const context = await browser.newContext();
+  let storageState;
+  if (STORAGE_STATE_JSON) {
+    try {
+      storageState = JSON.parse(STORAGE_STATE_JSON);
+      console.log("Loaded storage state from TVPLUS_STORAGE_STATE_JSON.");
+    } catch (error) {
+      throw new Error(`Invalid TVPLUS_STORAGE_STATE_JSON: ${error?.message || String(error)}`);
+    }
+  }
+  const context = await browser.newContext(storageState ? { storageState } : undefined);
+  await applySessionCookies(context);
   const page = await context.newPage();
 
   try {
-    await login(page);
+    await ensureAuthenticated(page, !headless);
 
     let rawLink = "";
     if (!skipAddLine) {
