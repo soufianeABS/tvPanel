@@ -117,6 +117,7 @@ Copy `.env.example` to `.env` and adjust.
 | `TVPLUS_CAPTCHA_API_KEY` | 2Captcha API key (required when provider is `2captcha`) |
 | `TVPLUS_CAPTCHA_TIMEOUT_MS` | Max wait time for captcha solve result (default `180000`) |
 | `TVPLUS_CAPTCHA_POLL_MS` | Poll interval for captcha result (default `5000`) |
+| `DINO_URL_HOST` | Optional override for JSON response `url` (example: `http://line.playmodx.com`) |
 | `HEADLESS` | `true` only if you do not need captcha UI |
 | `TVPLUS_SKIP_ADD_LINE` | `true` to stop after login |
 | `TVPLUS_ADDNEW_URL` | Default `https://tvpluspanel.ru/addnew?t=lines` |

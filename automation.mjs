@@ -18,6 +18,7 @@ const CAPTCHA_PROVIDER = (process.env.TVPLUS_CAPTCHA_PROVIDER || "").toLowerCase
 const CAPTCHA_API_KEY = process.env.TVPLUS_CAPTCHA_API_KEY || "";
 const CAPTCHA_TIMEOUT_MS = Number(process.env.TVPLUS_CAPTCHA_TIMEOUT_MS || "180000");
 const CAPTCHA_POLL_MS = Number(process.env.TVPLUS_CAPTCHA_POLL_MS || "5000");
+const DINO_URL_HOST = process.env.DINO_URL_HOST || "";
 
 /**
  * From a get.php (or similar) URL, return panel host + credentials.
@@ -36,7 +37,15 @@ export function parseLineCredentials(linkValue) {
   if (!username || !password) {
     throw new Error("Could not parse username/password from link (expected get.php?username=&password=)");
   }
-  const url = `${u.protocol}//${u.host}`;
+  const parsedDefaultUrl = `${u.protocol}//${u.host}`;
+  let url = parsedDefaultUrl;
+  if (DINO_URL_HOST) {
+    try {
+      url = new URL(DINO_URL_HOST).origin;
+    } catch {
+      throw new Error("Invalid DINO_URL_HOST. Expected a full URL like http://line.playmodx.com");
+    }
+  }
   return {
     url,
     username,
