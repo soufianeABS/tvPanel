@@ -100,7 +100,7 @@ docker run --rm -p 8080:8080 --env-file .env tvplus-automation
 
 ## Flow (CLI and API)
 
-1. Fills `#uname` / `#upass`, clicks captcha, waits for GeeTest tokens, submits login.
+1. Starts with captcha challenge handling, then fills `#uname` / `#upass`, and submits login.
 2. Opens `https://tvpluspanel.ru/addnew?t=lines` (or `TVPLUS_ADDNEW_URL`).
 3. Sets subscription (`#add_sub` → internal `#add_packid` via the page’s own `change` handler), country, optional notes, then **Select Package → Select All**, **Select VOD → Select All**, unchecks **1 - 4K UHD** (`#pack-fill-1`), then clicks **Confirm** (`#addnewButton` → `submitAddNew` / `api.php?action=add_new`).
 4. Waits for redirect to `./users?s=lines` when the API succeeds (same as the page script).

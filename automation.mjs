@@ -184,10 +184,7 @@ async function loginWithCaptcha(page, allowInteractiveLogin) {
   console.log(`Opening ${LOGIN_URL} ...`);
   await page.goto(LOGIN_URL, { waitUntil: "domcontentloaded" });
 
-  await page.fill("#uname", PANEL_USERNAME);
-  await page.fill("#upass", PANEL_PASSWORD);
-  console.log("Credentials filled.");
-
+  // Start with captcha handling first, then submit filled credentials.
   await page.waitForSelector("#captcha", { timeout: 20000 });
   if (CAPTCHA_PROVIDER === "2captcha") {
     await solveCaptchaWith2Captcha(page);
@@ -222,6 +219,10 @@ async function loginWithCaptcha(page, allowInteractiveLogin) {
       { timeout: 120000 }
     );
   }
+
+  await page.fill("#uname", PANEL_USERNAME);
+  await page.fill("#upass", PANEL_PASSWORD);
+  console.log("Credentials filled after captcha.");
 
   try {
     await page.click("button[name='btn-login']", { timeout: 10000 });
@@ -337,12 +338,9 @@ async function addNewLine(page) {
   console.log("Clicking Confirm (add new line)...");
   await page.click("#addnewButton");
 
-  await page.waitForURL(/\/users\?s=lines/i, { timeout: 120000 }).catch(() => {
-    console.log(
-      "Did not redirect to user list within timeout; check the browser for errors or SweetAlert."
-    );
-  });
-  console.log(`After confirm, URL: ${page.url()}`);
+  // The panel redirects automatically to users list after successful add.
+  await page.waitForURL(/\/users\?s=lines/i, { timeout: 120000 });
+  console.log(`Redirected automatically after add. URL: ${page.url()}`);
 
   if (/\/users\?s=lines/i.test(page.url())) {
     return await openFirstLineLinkMenu(page);
