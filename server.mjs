@@ -10,6 +10,11 @@ app.get("/health", (_req, res) => {
   res.status(200).type("text/plain").send("ok");
 });
 
+app.get("/testServer", async (_req, res) => {
+  await new Promise((resolve) => setTimeout(resolve, 10000));
+  res.json({ value1: "valule1" });
+});
+
 /**
  * GET /creatTestDino
  * Runs the TVPLUS Playwright flow and returns JSON:
@@ -40,5 +45,7 @@ app.get("/creatTestDino", async (_req, res) => {
 });
 
 app.listen(port, "0.0.0.0", () => {
-  console.log(`HTTP server listening on 0.0.0.0:${port} (GET /creatTestDino, GET /health)`);
+  console.log(
+    `HTTP server listening on 0.0.0.0:${port} (GET /creatTestDino, GET /testServer, GET /health)`
+  );
 });
