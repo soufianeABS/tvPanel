@@ -11,7 +11,7 @@ app.get("/health", (_req, res) => {
 });
 
 app.get("/testServer", async (_req, res) => {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   res.json({ value1: "valule1" });
 });
 
