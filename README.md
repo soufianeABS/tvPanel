@@ -16,6 +16,18 @@ npx playwright install chromium
 npm run cli
 ```
 
+Run Dino flow explicitly:
+
+```bash
+npm run cli:dino
+```
+
+Run strong login flow explicitly:
+
+```bash
+npm run cli:strong
+```
+
 ## Optional: 2Captcha automation (headless login)
 
 For unattended headless login, enable 2Captcha for GeeTest v4:
@@ -24,15 +36,15 @@ For unattended headless login, enable 2Captcha for GeeTest v4:
 2. Set environment variables:
 
 ```bash
-TVPLUS_CAPTCHA_PROVIDER=2captcha
-TVPLUS_CAPTCHA_API_KEY=your_key_here
+CAPTCHA_PROVIDER=2captcha
+CAPTCHA_API_KEY=your_key_here
 ```
 
 Optional tuning:
 
 ```bash
-TVPLUS_CAPTCHA_TIMEOUT_MS=180000
-TVPLUS_CAPTCHA_POLL_MS=5000
+CAPTCHA_TIMEOUT_MS=180000
+CAPTCHA_POLL_MS=5000
 ```
 
 Notes:
@@ -47,6 +59,12 @@ Notes:
   - `url` — origin of the line host (e.g. `http://line.example.com`)
   - `username`, `password` — parsed from the playlist `get.php?...` query string
   - `playlistUrl` — full playlist URL string from the Link modal `#link`
+- **GET `/creatStrongTest`** — runs the strong login-only flow for the 8K test website and responds with JSON:
+  - `ok` — boolean success flag
+  - `url` — final URL after login submit
+  - `addNewUrl` — URL after sidebar navigation (`M3U` → `Add New`) when enabled
+  - `username`, `password`, `playlistUrl` — extracted from first row Link modal after line creation
+  - `usernameSelector`, `passwordSelector` — selectors used for filling inputs
 - **GET `/health`** — plain `ok` for health checks.
 
 Only one automation run at a time; concurrent requests get **429**.
@@ -58,7 +76,7 @@ Only one automation run at a time; concurrent requests get **429**.
 3. Set secrets (run from anywhere; secrets are per Fly app):
 
    ```bash
-   fly secrets set TVPLUS_USERNAME=... TVPLUS_PASSWORD=... -a your-app-name
+   fly secrets set DINO_USERNAME=... DINO_PASSWORD=... -a your-app-name
    ```
 
 4. **Monorepo / Git connected to the whole repo:** Fly clones the **entire** repository. The **Docker build context** is what limits what gets built into the image. To deploy **only** this service, either:
@@ -89,7 +107,7 @@ One-time setup:
    - `FLY_API_TOKEN` = token from step 3.
 5. Push to `main` and GitHub Actions will run `flyctl deploy --remote-only`.
 
-**Captcha:** the panel login uses GeeTest. In headless mode, configure `TVPLUS_CAPTCHA_PROVIDER=2captcha` and `TVPLUS_CAPTCHA_API_KEY`, or run headful with manual captcha solving.
+**Captcha:** the panel login uses GeeTest. In headless mode, configure `CAPTCHA_PROVIDER=2captcha` and `CAPTCHA_API_KEY`, or run headful with manual captcha solving.
 
 ### Docker (local)
 
@@ -101,7 +119,7 @@ docker run --rm -p 8080:8080 --env-file .env tvplus-automation
 ## Flow (CLI and API)
 
 1. Starts with captcha challenge handling, then fills `#uname` / `#upass`, and submits login.
-2. Opens `https://tvpluspanel.ru/addnew?t=lines` (or `TVPLUS_ADDNEW_URL`).
+2. Opens `https://tvpluspanel.ru/addnew?t=lines` (or `DINO_ADDNEW_URL`).
 3. Sets subscription (`#add_sub` → internal `#add_packid` via the page’s own `change` handler), country, optional notes, then **Select Package → Select All**, **Select VOD → Select All**, unchecks **1 - 4K UHD** (`#pack-fill-1`), then clicks **Confirm** (`#addnewButton` → `submitAddNew` / `api.php?action=add_new`).
 4. Waits for redirect to `./users?s=lines` when the API succeeds (same as the page script).
 5. On [users?s=lines](https://tvpluspanel.ru/users?s=lines), opens the **Link** dropdown on the **first table row** and the **Link** menu item; reads **`#link`**. The CLI logs it; **GET `/creatTestDino`** returns it as JSON (`url`, `username`, `password`, `playlistUrl`).
@@ -112,25 +130,35 @@ Copy `.env.example` to `.env` and adjust.
 
 | Variable | Meaning |
 |----------|---------|
-| `TVPLUS_USERNAME` / `TVPLUS_PASSWORD` | Login |
-| `TVPLUS_CAPTCHA_PROVIDER` | Set `2captcha` to enable automated GeeTest solving during login |
-| `TVPLUS_CAPTCHA_API_KEY` | 2Captcha API key (required when provider is `2captcha`) |
-| `TVPLUS_CAPTCHA_TIMEOUT_MS` | Max wait time for captcha solve result (default `180000`) |
-| `TVPLUS_CAPTCHA_POLL_MS` | Poll interval for captcha result (default `5000`) |
+| `DINO_USERNAME` / `DINO_PASSWORD` | Dino login |
+| `CAPTCHA_PROVIDER` | Set `2captcha` to enable automated GeeTest solving |
+| `CAPTCHA_API_KEY` | 2Captcha API key (required when provider is `2captcha`) |
+| `CAPTCHA_TIMEOUT_MS` | Max wait time for captcha solve result (default `180000`) |
+| `CAPTCHA_POLL_MS` | Poll interval for captcha result (default `5000`) |
 | `DINO_URL_HOST` | Optional override for JSON response `url` (example: `http://line.playmodx.com`) |
 | `HEADLESS` | `true` only if you do not need captcha UI |
-| `TVPLUS_SKIP_ADD_LINE` | `true` to stop after login |
-| `TVPLUS_ADDNEW_URL` | Default `https://tvpluspanel.ru/addnew?t=lines` |
-| `TVPLUS_USERS_LINES_URL` | Documented default list URL (logic uses current page URL after redirect) |
-| `TVPLUS_LINE_SUBSCRIPTION` | `0`–`5` = 2Y, 1Y, 6M, 3M, 1M, 1D (default in code is **1 day** = `5`) |
-| `TVPLUS_LINE_COUNTRY` | ISO code or empty for Auto |
-| `TVPLUS_LINE_NOTES` | Optional `#add_comment` |
-| `TVPLUS_KEEP_OPEN_MS` | How long to keep the browser open at the end (CLI) |
+| `DINO_SKIP_ADD_LINE` | `true` to stop Dino flow after login |
+| `DINO_ADDNEW_URL` | Default `https://tvpluspanel.ru/addnew?t=lines` |
+| `DINO_USERS_LINES_URL` | Documented default list URL (logic uses current page URL after redirect) |
+| `DINO_LINE_SUBSCRIPTION` | `0`–`5` = 2Y, 1Y, 6M, 3M, 1M, 1D (default **1 day** = `5`) |
+| `DINO_LINE_COUNTRY` | ISO code or empty for Auto |
+| `DINO_LINE_NOTES` | Optional `#add_comment` |
+| `DINO_KEEP_OPEN_MS` | How long to keep browser open for Dino CLI |
+| `STRONG_LOGIN_URL` | Login page for strong use case (default `https://8k.cms-only.ru/login`) |
+| `STRONG_USERNAME` / `STRONG_PASSWORD` | Optional credentials override for strong flow (falls back to Dino credentials) |
+| `STRONG_LOGIN_SUCCESS_URL_REGEX` | Optional success URL regex to validate post-login redirect |
+| `STRONG_LOGIN_WAIT_AFTER_SUBMIT_MS` | Post-submit wait when keep-open is 0 (default `15000`) |
+| `STRONG_OPEN_M3U_ADDNEW` | `true` to click sidebar path `M3U` → `Add New` after login (default `true`) |
+| `STRONG_SUBSCRIPTION_VALUE` | Subscription value for strong Add New (default `5`, one day) |
+| `STRONG_BOUQUET_NAME` | Bouquet name to select in strong flow (default `kk`) |
+| `STRONG_LINE_COUNTRY` | Optional country value/text to select in strong Add New form |
+| `STRONG_LINE_NOTES` | Optional note/comment for strong Add New form |
+| `STRONG_KEEP_OPEN_MS` | How long to keep browser open for strong CLI |
 | `PORT` | HTTP server port (default `8080`) |
-| `TVPLUS_API_HEADFUL` | If `true`, API runs with a visible browser (still need captcha solved manually) |
+| `API_HEADFUL` | If `true`, API runs with a visible browser (still need captcha solved manually) |
 
 Notes:
 
 - Captcha must still be solved manually in the browser when `HEADLESS=false`.
-- In headless API mode, `/creatTestDino` requires `TVPLUS_CAPTCHA_PROVIDER=2captcha` + `TVPLUS_CAPTCHA_API_KEY`.
+- In headless API mode, `/creatTestDino` requires `CAPTCHA_PROVIDER=2captcha` + `CAPTCHA_API_KEY`.
 - The UI does not paste an M3U URL on this page; it creates a **line** with username in `#add_mac` and packages in `bouq_list[]`, matching your saved HTML.

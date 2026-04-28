@@ -1,0 +1,1265 @@
+<body>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+<div class="layout-width">
+    <div class="navbar-header">
+        <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box horizontal-logo">
+                <a href="./index" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="assets/images/4k_tv_gold.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/4k_tv_gold.png" alt="" height="55">
+                    </span>
+                </a>
+
+                <a href="index.php" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="assets/images/4k_tv_gold.png" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/4k_tv_gold.png" alt="" height="70">
+                    </span>
+                </a>
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger" id="topnav-hamburger-icon">
+                <span class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+            <form class="app-search d-none d-md-block" onsubmit="return false;">
+              <div class="position-relative">
+                <div class="input-group">
+                  <input type="text" id="masterSearchInput" class="form-control" placeholder="Search User..." autocomplete="off">
+                  <span class="mdi mdi-magnify search-widget-icon"></span>
+                  <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
+                  <button class="btn btn-primary masterSearch" type="button" onclick="runMasterSearch()" data-bs-target="#myModal" data-bs-toggle="modal">Search</button>
+                </div>
+              </div>
+            </form>
+        </div>
+        <script>
+        function runMasterSearch() {
+          const value = document.getElementById("masterSearchInput").value.trim();
+          if (value) {
+            api(value, 'master_search');
+          }
+        }
+        </script>
+        <div class="d-flex align-items-center">
+
+            <div class="dropdown ms-1 topbar-head-dropdown header-item">
+                <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img id="header-lang-img" src="assets/images/flags/uk.png" alt="Header Language" height="20" class="rounded">
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                                          <a href="?lang=en" class="dropdown-item notify-item language py-2" data-lang="en" title="English">
+                        <img src="assets/images/flags/uk.png" alt="user-image" class="me-2 rounded" height="18">
+                        <span class="align-middle">English</span>
+                    </a>
+                                          <a href="?lang=ar" class="dropdown-item notify-item language py-2" data-lang="ar" title="English">
+                        <img src="assets/images/flags/arabic.png" alt="user-image" class="me-2 rounded" height="18">
+                        <span class="align-middle">العربية</span>
+                    </a>
+                                      </div>
+            </div>
+
+<div class="dropdown topbar-head-dropdown ms-1 header-item">
+<button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<i class="bx bx-category-alt fs-22"></i>
+</button>
+<div class="dropdown-menu dropdown-menu-lg p-0 dropdown-menu-end">
+<div class="p-3 border-top-0 border-start-0 border-end-0 border-dashed border">
+<div class="row align-items-center">
+<div class="col">
+<h6 class="m-0 fw-semibold fs-15"> Web Apps </h6>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+            <div class="ms-1 header-item d-none d-sm-flex">
+                <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-toggle="fullscreen">
+                    <i class="bx bx-fullscreen fs-22"></i>
+                </button>
+            </div>
+
+            <div class="ms-1 header-item d-none d-sm-flex">
+                <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
+                    <i class="bx bx-moon fs-22"></i>
+                </button>
+            </div>
+
+            <div class="dropdown ms-sm-3 header-item topbar-user">
+                <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="d-flex align-items-center">
+
+                            <img src="assets/images/ranks/bronze_big.png" title="Bronze" style="width:40px;" alt="" class="img-fluid align-middle rank-img">
+                        <span class="text-start ms-xl-2">
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">abdessamad07</span>
+                            <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Bronze</span>
+                        </span>
+                    </span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <h6 class="dropdown-header">Welcome abdessamad07</h6>
+                    <a class="dropdown-item" href="./profile"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Balance: <b>107</b> Credits</span></a>
+                    <a class="dropdown-item" href="./profile"><i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Settings</span></a>
+                    <a class="dropdown-item" href="logout.php"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</header>
+<!-- ========== App Menu ========== -->
+<div class="app-menu navbar-menu">
+<!-- LOGO -->
+<div class="navbar-brand-box">
+    <!-- Dark Logo-->
+    <a href="index" class="logo logo-dark">
+        <span class="logo-sm">
+            <img src="assets/images/8k_tv_gold_new.png" alt="" height="22">
+        </span>
+        <span class="logo-lg">
+            <img src="assets/images/8k_tv_gold_new.png" alt="" height="17">
+        </span>
+    </a>
+    <!-- Light Logo-->
+    <a href="index" class="logo logo-light">
+        <span class="logo-sm">
+            <img src="assets/images/8k_tv_gold_new.png" alt="" height="50">
+        </span>
+        <span class="logo-lg">
+            <img src="assets/images/8k_tv_gold_new.png" alt="" height="100" style="object-fit: contain;">
+        </span>
+    </a>
+    <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+        <i class="ri-record-circle-line"></i>
+    </button>
+</div>
+
+<div id="scrollbar" data-simplebar="init" class="h-100"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
+    <div class="container-fluid">
+
+        <div id="two-column-menu">
+          </div>
+<div class="card-body">
+<div class="d-flex align-items-center">
+<div class="avatar-sm flex-shrink-0">
+<lord-icon src="https://cdn.lordicon.com/qhviklyi.json" trigger="loop" colors="primary:#ffffff,secondary:#0ab39c" style="width:55px;height:55px"><template shadowrootmode="open"><style>
+:host {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  vertical-align: middle;
+  fill: currentcolor;
+  stroke: none;
+  overflow: hidden;
+}
+
+:host(.inherit-color) svg path[fill] {
+  fill: currentColor;
+}
+
+:host(.inherit-color) svg path[stroke] {
+  stroke: currentColor;
+}
+
+svg {
+    pointer-events: none;
+    display: block;
+}
+
+div {    
+    width: 100%;
+    height: 100%;
+}
+
+div.slot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+</style><div class="slot"><slot></slot></div><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_92"><rect width="500" height="500" x="0" y="0"></rect></clipPath><clipPath id="__lottie_element_95"><path d="M0,0 L500,0 L500,500 L0,500z"></path></clipPath><filter id="__lottie_element_104" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%"><feComponentTransfer in="SourceGraphic"><feFuncA type="table" tableValues="1.0 0.0"></feFuncA></feComponentTransfer></filter><mask id="__lottie_element_98" mask-type="alpha"><g filter="url(#__lottie_element_104)"><rect width="500" height="500" x="0" y="0" fill="#ffffff" opacity="0"></rect><g transform="matrix(7.832992076873779,-7.366790294647217,7.366790294647217,7.832992076873779,214.78939819335938,283.3280029296875)" opacity="1" style="display: block;"><path fill="rgb(18,19,49)" fill-opacity="1" d=" M4,-7 C9.798999786376953,-7 14.5,-2.2990000247955322 14.5,3.5 C14.5,9.298999786376953 9.798999786376953,14 4,14 C-1.7990000247955322,14 -6.5,9.298999786376953 -6.5,3.5 C-6.5,-2.2990000247955322 -1.7990000247955322,-7 4,-7z M4,-3.61899995803833 C7.932000160217285,-3.61899995803833 11.119000434875488,-0.4320000112056732 11.119000434875488,3.5 C11.119000434875488,7.432000160217285 7.932000160217285,10.619000434875488 4,10.619000434875488 C0.06800000369548798,10.619000434875488 -3.11899995803833,7.432000160217285 -3.11899995803833,3.5 C-3.11899995803833,-0.4320000112056732 0.06800000369548798,-3.61899995803833 4,-3.61899995803833z"></path><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="0" d=" M4,-7 C9.798999786376953,-7 14.5,-2.2990000247955322 14.5,3.5 C14.5,9.298999786376953 9.798999786376953,14 4,14 C-1.7990000247955322,14 -6.5,9.298999786376953 -6.5,3.5 C-6.5,-2.2990000247955322 -1.7990000247955322,-7 4,-7z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="0" d=" M4,-3.61899995803833 C7.932000160217285,-3.61899995803833 11.119000434875488,-0.4320000112056732 11.119000434875488,3.5 C11.119000434875488,7.432000160217285 7.932000160217285,10.619000434875488 4,10.619000434875488 C0.06800000369548798,10.619000434875488 -3.11899995803833,7.432000160217285 -3.11899995803833,3.5 C-3.11899995803833,-0.4320000112056732 0.06800000369548798,-3.61899995803833 4,-3.61899995803833z"></path></g></g></g></mask></defs><g clip-path="url(#__lottie_element_92)"><g mask="url(#__lottie_element_98)" style="display: block;"><g clip-path="url(#__lottie_element_95)" transform="matrix(1,0,0,1,0,0)" opacity="1"><g transform="matrix(10.752920150756836,0,0,10.752920150756836,255.58969116210938,244.45050048828125)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="1.05" d=" M-12,-4 C-12,-4 4,-4 4,-4 C5.38100004196167,-4 6.5,-2.88100004196167 6.5,-1.5 C6.5,-1.5 6.5,-1.5 6.5,-1.5 C6.5,-0.11900000274181366 5.38100004196167,1 4,1 C4,1 -12,1 -12,1 C-13.380999565124512,1 -14.5,-0.11900000274181366 -14.5,-1.5 C-14.5,-1.5 -14.5,-1.5 -14.5,-1.5 C-14.5,-2.88100004196167 -13.380999565124512,-4 -12,-4z"></path></g></g><g transform="matrix(10.752920150756836,0,0,10.752920150756836,277.0896911621094,253.71096801757812)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="1.05" d=" M-12,1 C-12,1 4,1 4,1 C5.38100004196167,1 6.5,2.11899995803833 6.5,3.5 C6.5,3.5 6.5,3.5 6.5,3.5 C6.5,4.88100004196167 5.38100004196167,6 4,6 C4,6 -12,6 -12,6 C-13.380999565124512,6 -14.5,4.88100004196167 -14.5,3.5 C-14.5,3.5 -14.5,3.5 -14.5,3.5 C-14.5,2.11899995803833 -13.380999565124512,1 -12,1z"></path></g></g><g transform="matrix(10.752920150756836,0,0,10.752920150756836,255.58969116210938,264.294189453125)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="1.05" d=" M-12,6 C-12,6 4,6 4,6 C5.38100004196167,6 6.5,7.11899995803833 6.5,8.5 C6.5,8.5 6.5,8.5 6.5,8.5 C6.5,9.880999565124512 5.38100004196167,11 4,11 C4,11 -12,11 -12,11 C-13.380999565124512,11 -14.5,9.880999565124512 -14.5,8.5 C-14.5,8.5 -14.5,8.5 -14.5,8.5 C-14.5,7.11899995803833 -13.380999565124512,6 -12,6z"></path></g></g><g transform="matrix(10.622157096862793,1.6718440055847168,-1.6718440055847168,10.622157096862793,259.67962646484375,237.535888671875)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="1.05" d=" M-12,-9 C-12,-9 4,-9 4,-9 C5.38100004196167,-9 6.5,-7.88100004196167 6.5,-6.5 C6.5,-6.5 6.5,-6.5 6.5,-6.5 C6.5,-5.11899995803833 5.38100004196167,-4 4,-4 C4,-4 -12,-4 -12,-4 C-13.380999565124512,-4 -14.5,-5.11899995803833 -14.5,-6.5 C-14.5,-6.5 -14.5,-6.5 -14.5,-6.5 C-14.5,-7.88100004196167 -13.380999565124512,-9 -12,-9z"></path></g></g></g></g><g transform="matrix(7.832992076873779,-7.366790294647217,7.366790294647217,7.832992076873779,214.78939819335938,283.3280029296875)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="1.05" d=" M4,-7 C9.798999786376953,-7 14.5,-2.2990000247955322 14.5,3.5 C14.5,9.298999786376953 9.798999786376953,14 4,14 C-1.7990000247955322,14 -6.5,9.298999786376953 -6.5,3.5 C-6.5,-2.2990000247955322 -1.7990000247955322,-7 4,-7z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(9,179,156)" stroke-opacity="1" stroke-width="1.05" d=" M4,-3.61899995803833 C7.932000160217285,-3.61899995803833 11.119000434875488,-0.4320000112056732 11.119000434875488,3.5 C11.119000434875488,7.432000160217285 7.932000160217285,10.619000434875488 4,10.619000434875488 C0.06800000369548798,10.619000434875488 -3.11899995803833,7.432000160217285 -3.11899995803833,3.5 C-3.11899995803833,-0.4320000112056732 0.06800000369548798,-3.61899995803833 4,-3.61899995803833z"></path></g></g><g class="com" transform="matrix(2.65159010887146,0,0,2.65159010887146,37.9818115234375,480.39056396484375)" opacity="0" style="display: none;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M141.6959991455078,0 C141.6959991455078,0 144.6699981689453,0 144.6699981689453,0 C144.6699981689453,0 144.6699981689453,-12.715999603271484 144.6699981689453,-12.715999603271484 C144.6699981689453,-12.715999603271484 148.62899780273438,0 148.62899780273438,0 C148.62899780273438,0 151.25399780273438,0 151.25399780273438,0 C151.25399780273438,0 155.2949981689453,-12.715999603271484 155.2949981689453,-12.715999603271484 C155.2949981689453,-12.715999603271484 155.2949981689453,0 155.2949981689453,0 C155.2949981689453,0 158.4530029296875,0 158.4530029296875,0 C158.4530029296875,0 158.4530029296875,-14.829000473022461 158.4530029296875,-14.829000473022461 C158.4530029296875,-14.829000473022461 153.4080047607422,-14.829000473022461 153.4080047607422,-14.829000473022461 C153.4080047607422,-14.829000473022461 150.0240020751953,-4.040999889373779 150.0240020751953,-4.040999889373779 C150.0240020751953,-4.040999889373779 146.88499450683594,-14.829000473022461 146.88499450683594,-14.829000473022461 C146.88499450683594,-14.829000473022461 141.6959991455078,-14.829000473022461 141.6959991455078,-14.829000473022461 C141.6959991455078,-14.829000473022461 141.6959991455078,0 141.6959991455078,0z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M128.80499267578125,-7.302000045776367 C128.80499267578125,-8.984000205993652 129.05099487304688,-10.583000183105469 129.89199829101562,-11.609000205993652 C130.48699951171875,-12.368000030517578 131.42999267578125,-12.859999656677246 132.6199951171875,-12.859999656677246 C134.13800048828125,-12.859999656677246 135.38900756835938,-12.0600004196167 136.00399780273438,-10.234999656677246 C136.31199645996094,-9.333000183105469 136.3730010986328,-8.307000160217285 136.3730010986328,-7.589000225067139 C136.3730010986328,-5.230000019073486 135.86000061035156,-4.080999851226807 135.3679962158203,-3.3429999351501465 C134.7729949951172,-2.4200000762939453 133.89100646972656,-1.968999981880188 132.5989990234375,-1.968999981880188 C131.1219940185547,-1.968999981880188 130.36300659179688,-2.5439999103546143 129.91200256347656,-3.1589999198913574 C129.02999877929688,-4.308000087738037 128.80499267578125,-5.88700008392334 128.80499267578125,-7.302000045776367z M125.48200225830078,-7.198999881744385 C125.48200225830078,-5.84499979019165 125.68800354003906,-3.384000062942505 127.30799865722656,-1.6610000133514404 C128.66200256347656,-0.2460000067949295 130.60899353027344,0.36899998784065247 132.55799865722656,0.36899998784065247 C133.78900146484375,0.36899998784065247 136.18800354003906,0.10300000011920929 137.82899475097656,-1.7430000305175781 C139.03900146484375,-3.0969998836517334 139.6959991455078,-5.394000053405762 139.6959991455078,-7.547999858856201 C139.6959991455078,-9.003999710083008 139.38800048828125,-11.321999549865723 137.8090057373047,-13.126999855041504 C136.35299682617188,-14.767999649047852 134.17799377441406,-15.13700008392334 132.5989990234375,-15.13700008392334 C127.26599884033203,-15.13700008392334 125.48200225830078,-11.13700008392334 125.48200225830078,-7.198999881744385z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M124.04000091552734,-9.98900032043457 C124.04000091552734,-12.942999839782715 121.76399993896484,-14.91100025177002 118.52300262451172,-14.91100025177002 C114.35900115966797,-14.91100025177002 111.73400115966797,-11.793999671936035 111.73400115966797,-7.0970001220703125 C111.73400115966797,-3.4260001182556152 113.3949966430664,0.3490000069141388 118.50199890136719,0.3490000069141388 C119.85600280761719,0.3490000069141388 121.51699829101562,0.04100000113248825 122.83000183105469,-1.312999963760376 C124.0199966430664,-2.5439999103546143 124.10099792480469,-3.9170000553131104 124.16300201416016,-4.798999786376953 C124.16300201416016,-4.798999786376953 120.81999969482422,-4.798999786376953 120.81999969482422,-4.798999786376953 C120.75800323486328,-2.8299999237060547 119.48699951171875,-1.9900000095367432 118.15399932861328,-1.9900000095367432 C115.05699920654297,-1.9900000095367432 115.05699920654297,-6.193999767303467 115.05699920654297,-7.076000213623047 C115.05699920654297,-10.131999969482422 116.04100036621094,-12.593000411987305 118.4000015258789,-12.593000411987305 C120.55400085449219,-12.593000411987305 120.73799896240234,-10.501999855041504 120.80000305175781,-9.98900032043457 C120.80000305175781,-9.98900032043457 124.04000091552734,-9.98900032043457 124.04000091552734,-9.98900032043457z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M106.89299774169922,0 C106.89299774169922,0 109.49700164794922,0 109.49700164794922,0 C109.49700164794922,0 109.49700164794922,-2.7279999256134033 109.49700164794922,-2.7279999256134033 C109.49700164794922,-2.7279999256134033 106.89299774169922,-2.7279999256134033 106.89299774169922,-2.7279999256134033 C106.89299774169922,-2.7279999256134033 106.89299774169922,0 106.89299774169922,0z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M91.00700378417969,0 C91.00700378417969,0 94.0009994506836,0 94.0009994506836,0 C94.0009994506836,0 94.0009994506836,-12.305999755859375 94.0009994506836,-12.305999755859375 C94.0009994506836,-12.305999755859375 99.74400329589844,0 99.74400329589844,0 C99.74400329589844,0 104.11299896240234,0 104.11299896240234,0 C104.11299896240234,0 104.11299896240234,-14.829000473022461 104.11299896240234,-14.829000473022461 C104.11299896240234,-14.829000473022461 101.15899658203125,-14.829000473022461 101.15899658203125,-14.829000473022461 C101.15899658203125,-14.829000473022461 101.15899658203125,-3.1589999198913574 101.15899658203125,-3.1589999198913574 C101.15899658203125,-3.1589999198913574 95.60099792480469,-14.829000473022461 95.60099792480469,-14.829000473022461 C95.60099792480469,-14.829000473022461 91.00700378417969,-14.829000473022461 91.00700378417969,-14.829000473022461 C91.00700378417969,-14.829000473022461 91.00700378417969,0 91.00700378417969,0z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M77.86900329589844,-7.302000045776367 C77.86900329589844,-8.984000205993652 78.11499786376953,-10.583000183105469 78.95600128173828,-11.609000205993652 C79.5510025024414,-12.368000030517578 80.49400329589844,-12.859999656677246 81.68399810791016,-12.859999656677246 C83.2020034790039,-12.859999656677246 84.4530029296875,-12.0600004196167 85.06800079345703,-10.234999656677246 C85.3759994506836,-9.333000183105469 85.43699645996094,-8.307000160217285 85.43699645996094,-7.589000225067139 C85.43699645996094,-5.230000019073486 84.92400360107422,-4.080999851226807 84.43199920654297,-3.3429999351501465 C83.83699798583984,-2.4200000762939453 82.95500183105469,-1.968999981880188 81.66300201416016,-1.968999981880188 C80.18599700927734,-1.968999981880188 79.4280014038086,-2.5439999103546143 78.97699737548828,-3.1589999198913574 C78.09500122070312,-4.308000087738037 77.86900329589844,-5.88700008392334 77.86900329589844,-7.302000045776367z M74.5459976196289,-7.198999881744385 C74.5459976196289,-5.84499979019165 74.75199890136719,-3.384000062942505 76.37200164794922,-1.6610000133514404 C77.72599792480469,-0.2460000067949295 79.6729965209961,0.36899998784065247 81.62200164794922,0.36899998784065247 C82.85299682617188,0.36899998784065247 85.25299835205078,0.10300000011920929 86.89399719238281,-1.7430000305175781 C88.10399627685547,-3.0969998836517334 88.76000213623047,-5.394000053405762 88.76000213623047,-7.547999858856201 C88.76000213623047,-9.003999710083008 88.4520034790039,-11.321999549865723 86.87300109863281,-13.126999855041504 C85.41699981689453,-14.767999649047852 83.24199676513672,-15.13700008392334 81.66300201416016,-15.13700008392334 C76.33000183105469,-15.13700008392334 74.5459976196289,-11.13700008392334 74.5459976196289,-7.198999881744385z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M73.10399627685547,-9.98900032043457 C73.10399627685547,-12.942999839782715 70.8280029296875,-14.91100025177002 67.58699798583984,-14.91100025177002 C63.42300033569336,-14.91100025177002 60.79800033569336,-11.793999671936035 60.79800033569336,-7.0970001220703125 C60.79800033569336,-3.4260001182556152 62.45899963378906,0.3490000069141388 67.56600189208984,0.3490000069141388 C68.91999816894531,0.3490000069141388 70.58100128173828,0.04100000113248825 71.89399719238281,-1.312999963760376 C73.08399963378906,-2.5439999103546143 73.16500091552734,-3.9170000553131104 73.22699737548828,-4.798999786376953 C73.22699737548828,-4.798999786376953 69.88400268554688,-4.798999786376953 69.88400268554688,-4.798999786376953 C69.8219985961914,-2.8299999237060547 68.5510025024414,-1.9900000095367432 67.21800231933594,-1.9900000095367432 C64.12100219726562,-1.9900000095367432 64.12100219726562,-6.193999767303467 64.12100219726562,-7.076000213623047 C64.12100219726562,-10.131999969482422 65.1050033569336,-12.593000411987305 67.46399688720703,-12.593000411987305 C69.61799621582031,-12.593000411987305 69.802001953125,-10.501999855041504 69.86399841308594,-9.98900032043457 C69.86399841308594,-9.98900032043457 73.10399627685547,-9.98900032043457 73.10399627685547,-9.98900032043457z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M55.66899871826172,0 C55.66899871826172,0 58.8489990234375,0 58.8489990234375,0 C58.8489990234375,0 58.8489990234375,-14.869999885559082 58.8489990234375,-14.869999885559082 C58.8489990234375,-14.869999885559082 55.66899871826172,-14.869999885559082 55.66899871826172,-14.869999885559082 C55.66899871826172,-14.869999885559082 55.66899871826172,0 55.66899871826172,0z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M44.28799819946289,-12.387999534606934 C46.112998962402344,-12.470000267028809 46.95500183105469,-12.368000030517578 47.611000061035156,-12.182999610900879 C49.60100173950195,-11.628999710083008 50.31800079345703,-9.701000213623047 50.31800079345703,-7.609000205993652 C50.31800079345703,-6.890999794006348 50.236000061035156,-4.676000118255615 48.98500061035156,-3.424999952316284 C48.0620002746582,-2.502000093460083 46.893001556396484,-2.4000000953674316 45.53900146484375,-2.4000000953674316 C45.16999816894531,-2.4000000953674316 44.637001037597656,-2.4200000762939453 44.28799819946289,-2.440999984741211 C44.28799819946289,-2.440999984741211 44.28799819946289,-12.387999534606934 44.28799819946289,-12.387999534606934z M41.06800079345703,0 C41.06800079345703,0 45.68299865722656,0 45.68299865722656,0 C47.18000030517578,0 47.79499816894531,-0.061000000685453415 48.3489990234375,-0.164000004529953 C51.159000396728516,-0.6769999861717224 53.599998474121094,-3.055999994277954 53.599998474121094,-7.609000205993652 C53.599998474121094,-9.722000122070312 52.94300079345703,-12.0600004196167 51.07699966430664,-13.434000015258789 C49.292999267578125,-14.746999740600586 46.790000915527344,-14.767999649047852 45.970001220703125,-14.767999649047852 C45.970001220703125,-14.767999649047852 41.06800079345703,-14.788000106811523 41.06800079345703,-14.788000106811523 C41.06800079345703,-14.788000106811523 41.06800079345703,0 41.06800079345703,0z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M30.518999099731445,-12.491000175476074 C30.518999099731445,-12.491000175476074 32.652000427246094,-12.491000175476074 32.652000427246094,-12.491000175476074 C33.65700149536133,-12.491000175476074 34.25199890136719,-12.491000175476074 34.74399948120117,-12.142000198364258 C35.03099822998047,-11.956999778747559 35.52399826049805,-11.486000061035156 35.52399826049805,-10.480999946594238 C35.52399826049805,-9.4350004196167 34.92900085449219,-8.92199993133545 34.702999114990234,-8.758000373840332 C34.189998626708984,-8.347999572753906 33.45199966430664,-8.347999572753906 33.08300018310547,-8.347999572753906 C33.08300018310547,-8.347999572753906 30.518999099731445,-8.347999572753906 30.518999099731445,-8.347999572753906 C30.518999099731445,-8.347999572753906 30.518999099731445,-12.491000175476074 30.518999099731445,-12.491000175476074z M27.381000518798828,0 C27.381000518798828,0 30.621999740600586,0 30.621999740600586,0 C30.621999740600586,0 30.621999740600586,-5.988999843597412 30.621999740600586,-5.988999843597412 C30.621999740600586,-5.988999843597412 33.4109992980957,-5.988999843597412 33.4109992980957,-5.988999843597412 C33.944000244140625,-5.988999843597412 34.7239990234375,-5.988999843597412 35.01100158691406,-5.1479997634887695 C35.215999603271484,-4.573999881744385 35.66699981689453,-0.8199999928474426 35.81100082397461,0 C35.81100082397461,0 39.31800079345703,0 39.31800079345703,0 C39.15399932861328,-0.2460000067949295 39.03099822998047,-0.41100001335144043 38.867000579833984,-1.0670000314712524 C38.763999938964844,-1.4769999980926514 38.641998291015625,-2.194999933242798 38.41600036621094,-3.937999963760376 C38.14899826049805,-5.866000175476074 37.98500061035156,-7.138000011444092 35.749000549316406,-7.3429999351501465 C36.46699905395508,-7.547999858856201 38.84700012207031,-8.204000473022461 38.84700012207031,-10.972999572753906 C38.84700012207031,-11.937000274658203 38.47700119018555,-13.02400016784668 37.55400085449219,-13.824000358581543 C36.36399841308594,-14.850000381469727 34.70399856567383,-14.850000381469727 33.0629997253418,-14.829000473022461 C33.0629997253418,-14.829000473022461 27.381000518798828,-14.829000473022461 27.381000518798828,-14.829000473022461 C27.381000518798828,-14.829000473022461 27.381000518798828,0 27.381000518798828,0z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M14.489999771118164,-7.302000045776367 C14.489999771118164,-8.984000205993652 14.736000061035156,-10.583000183105469 15.57699966430664,-11.609000205993652 C16.172000885009766,-12.368000030517578 17.114999771118164,-12.859999656677246 18.30500030517578,-12.859999656677246 C19.822999954223633,-12.859999656677246 21.073999404907227,-12.0600004196167 21.68899917602539,-10.234999656677246 C21.996999740600586,-9.333000183105469 22.058000564575195,-8.307000160217285 22.058000564575195,-7.589000225067139 C22.058000564575195,-5.230000019073486 21.545000076293945,-4.080999851226807 21.05299949645996,-3.3429999351501465 C20.45800018310547,-2.4200000762939453 19.576000213623047,-1.968999981880188 18.284000396728516,-1.968999981880188 C16.80699920654297,-1.968999981880188 16.04800033569336,-2.5439999103546143 15.597000122070312,-3.1589999198913574 C14.71500015258789,-4.308000087738037 14.489999771118164,-5.88700008392334 14.489999771118164,-7.302000045776367z M11.166999816894531,-7.198999881744385 C11.166999816894531,-5.84499979019165 11.371999740600586,-3.384000062942505 12.991999626159668,-1.6610000133514404 C14.345999717712402,-0.2460000067949295 16.29400062561035,0.36899998784065247 18.243000030517578,0.36899998784065247 C19.474000930786133,0.36899998784065247 21.87299919128418,0.10300000011920929 23.513999938964844,-1.7430000305175781 C24.724000930786133,-3.0969998836517334 25.381000518798828,-5.394000053405762 25.381000518798828,-7.547999858856201 C25.381000518798828,-9.003999710083008 25.072999954223633,-11.321999549865723 23.493999481201172,-13.126999855041504 C22.038000106811523,-14.767999649047852 19.863000869750977,-15.13700008392334 18.284000396728516,-15.13700008392334 C12.951000213623047,-15.13700008392334 11.166999816894531,-11.13700008392334 11.166999816894531,-7.198999881744385z"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path fill="rgb(0,0,0)" fill-opacity="1" d=" M1.4149999618530273,0 C1.4149999618530273,0 11.013999938964844,0 11.013999938964844,0 C11.013999938964844,0 11.013999938964844,-2.5230000019073486 11.013999938964844,-2.5230000019073486 C11.013999938964844,-2.5230000019073486 4.656000137329102,-2.5230000019073486 4.656000137329102,-2.5230000019073486 C4.656000137329102,-2.5230000019073486 4.656000137329102,-14.809000015258789 4.656000137329102,-14.809000015258789 C4.656000137329102,-14.809000015258789 1.4149999618530273,-14.809000015258789 1.4149999618530273,-14.809000015258789 C1.4149999618530273,-14.809000015258789 1.4149999618530273,0 1.4149999618530273,0z"></path></g></g></g></svg></div></template></lord-icon>
+</div>
+<div class="flex-grow-1 ms-3">
+<p class="text-uppercase fw-semibold fs-12 mb-1 text-white"> abdessamad07 <img src="assets/images/ranks/bronze_big.png" title="Bronze" alt="" class="img-fluid align-middle rank-img"></p>
+<h5 class=" mb-0"><span class="counter-value text-white" data-target="107"><b>107</b> Credits</span></h5>
+</div>
+</div>
+
+<div class="row mt-2 text-center">
+<div class="col-12">
+<a href="" data-bs-target="#myModal" data-bs-toggle="modal" onclick="api('mag', 'quick_addnew')"><button type="button" class="btn btn-primary btn-sm"><i class="ri-user-add-line label-icon align-middle"></i> Quick MAG</button></a>
+<a href="" data-bs-target="#myModal" data-bs-toggle="modal" onclick="api('lines', 'quick_addnew')"><button type="button" class="btn btn-info btn-sm"><i class="ri-user-add-line label-icon align-middle"></i> Quick M3U</button></a>
+</div>
+</div>
+</div>
+
+
+        <ul class="navbar-nav" id="navbar-nav" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 0px;">
+            <li class="menu-title"><span>Main</span></li>
+            <li class="nav-item">
+                <a class="nav-link menu-link" href="./index">
+                    <i class="ri-dashboard-2-line"></i> <span>Dashboard</span>
+                </a>
+                </li><li class="nav-item">
+                    <a class="nav-link menu-link collapsed" href="#account" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                        <i class=" ri-account-box-line"></i> <span>Account</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="account">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="./profile" class="nav-link"> <i class="ri-account-box-line"></i>Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./profile" class="nav-link"> <i class="ri-settings-2-line"></i>Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./profile" class="nav-link"> <i class="ri-key-line"></i>Change Password</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./profile" class="nav-link"> <i class="ri-qr-code-line"></i>2FA</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <a class="nav-link menu-link" href="./news">
+                    <i class="ri-newspaper-line"></i> <span>News</span>
+                </a>
+            
+
+            <li class="menu-title"><i class="ri-more-fill"></i> <span>Manage Users</span></li>
+
+            <li class="nav-item">
+                <a class="nav-link menu-link collapsed" href="#magDevices" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                    <i class=" ri-server-line"></i> <span>MAG</span>
+                </a>
+                <div class="collapse menu-dropdown" id="magDevices">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="addnew?t=mag" class="nav-link"> <i class="ri-user-add-line"></i>Add New</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-bs-target="#myModal" data-bs-toggle="modal" onclick="api('mag', 'quick_addnew')" class="nav-link"> <i class="ri-user-add-line"></i>Quick add MAG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="users?t=mag" class="nav-link"> <i class="ri-team-line"></i>Userlist</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link collapsed" href="#m3uDevices" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                    <i class=" ri-links-line"></i> <span>M3U</span>
+                </a>
+                <div class="collapse menu-dropdown" id="m3uDevices">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="addnew?t=lines" class="nav-link"> <i class="ri-user-add-line"></i>Add New</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-bs-target="#myModal" data-bs-toggle="modal" onclick="api('lines', 'quick_addnew')" class="nav-link"> <i class="ri-user-add-line"></i>Quick add M3U</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="users?t=lines" class="nav-link"> <i class="ri-team-line"></i>Userlist</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link collapsed" href="#e2Devices" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                    <i class=" ri-hard-drive-2-line"></i> <span>E2</span>
+                </a>
+                <div class="collapse menu-dropdown" id="e2Devices">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="addnew?t=e2" class="nav-link"> <i class="ri-user-add-line"></i>Add New</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="users?t=e2" class="nav-link"> <i class="ri-team-line"></i>Userlist</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-link collapsed" href="#stabDevices" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                    <i class=" ri-code-box-line"></i> <span>Stable</span>
+                </a>
+                <div class="collapse menu-dropdown" id="stabDevices">
+                    <ul class="nav nav-sm flex-column">
+                        <li class="nav-item">
+                            <a href="addnew_protocol" class="nav-link"> <i class="ri-user-add-line"></i>Add New</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="users?t=stable" class="nav-link"> <i class="ri-team-line"></i>Userlist</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+<li class="menu-title"><i class="ri-more-fill"></i> <span>Manage Subsellers</span></li>
+
+<li class="nav-item">
+<a class="nav-link menu-link collapsed" href="#subLists" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+    <i class="ri-account-circle-line"></i> <span>Subsellers</span>
+</a>
+<div class="collapse menu-dropdown" id="subLists">
+    <ul class="nav nav-sm flex-column">
+        <li class="nav-item">
+            <a href="./list-res?t=subsellers" class="nav-link"> <i class="ri-team-line"></i>Subseller List</a>
+        </li>
+    </ul>
+</div>
+</li>
+<li class="menu-title"><span>Support</span></li>
+<li class="nav-item">
+<a class="nav-link menu-link" href="./ticket_list">
+  <i class="ri-question-line"></i> <span>Support Ticket</span>
+    </a>
+</li>
+<li class="menu-title"><span>Tools</span></li>
+<li class="nav-item">
+<a class="nav-link menu-link collapsed" href="#logs" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+    <i class=" ri-file-search-line"></i> <span>Logs</span>
+</a>
+<div class="collapse menu-dropdown" id="logs">
+    <ul class="nav nav-sm flex-column">
+        <li class="nav-item">
+          <a class="nav-link menu-link" href="./logs?t=trans">
+              <i class="ri-line-chart-line"></i> <span>Transactions</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link menu-link" href="./logs?t=subs">
+              <i class="ri-coins-line"></i> <span>Subscriptions</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link menu-link" href="./logs?t=transfer">
+              <i class="ri-coins-line"></i> <span>Transfer</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link menu-link" href="./logs_master">
+              <i class="ri-coins-line"></i> <span >Transfer</span>
+          </a>
+        </li> -->
+    </ul>
+</div>
+</li>
+
+<li class="nav-item">
+<a class="nav-link menu-link" href="./bouquets">
+  <i class="ri-folders-line"></i> <span>Bouquets</span>
+</a>
+<a class="nav-link menu-link" href="./downloads">
+  <i class="ri-download-cloud-2-line"></i> <span>Downloads</span>
+</a>
+<a class="nav-link menu-link" href="./request-credits">
+  <i class="ri-hand-coin-line"></i> <span>Request Credits</span>  </a>
+</li><li class="nav-item">
+  <a class="nav-link menu-link collapsed" href="#services" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+      <i class=" ri-ubuntu-line"></i> <span>My Services</span>
+  </a>
+  <div class="collapse menu-dropdown" id="services">
+      <ul class="nav nav-sm flex-column">
+          <li class="nav-item">
+            <a class="nav-link menu-link" href="./logs_api">
+                <i class="ri-key-fill"></i> <span>API</span>
+            </a>
+          </li>
+          <a class="nav-link menu-link" href="./tools_domains">
+              <i class="ri-links-line"></i> <span>My Hosts</span>
+          </a>
+          <li class="nav-item">
+            <a class="nav-link menu-link" href="./tools_domains?s=vps">
+                <i class="ri-links-line"></i> <span>My VPS</span>
+            </a>
+          </li>
+      </ul>
+  </div>
+</li>
+
+          </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 861px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></ul>
+    </div>
+    <!-- Sidebar -->
+</div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 945px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 413px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div>
+</div>
+<!-- Left Sidebar End -->
+<!-- Vertical Overlay-->
+<div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Userlist</h4>
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item">Manage Users</li>
+                                        <li class="breadcrumb-item active">Userlist</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                                    <div class="card">
+
+                                      <div class="card-header  border-0">
+                                      <div class="d-flex align-items-center">
+                                      <h5 class="card-title mb-0 flex-grow-1">Userlist<br></h5>
+                                      <div class="flex-shrink-0">
+                                      <a href="./addnew?t=lines"><button type="button" class="btn btn-success add-btn"><i class="ri-add-line align-bottom me-1"></i> Add New</button></a>
+                                      <button type="button" onclick="changeZoom();" class="btn btn-info"><i class="mdi mdi-magnify s-16 align-middle"></i></button>
+                                      <button type="button" onclick="clearFilters();" class="btn btn-warning"><i class="mdi mdi-filter-remove s-16 align-middle"></i></button>
+                                      <button type="button" id="download_excel" class="btn btn-success"><i class="ri-file-excel-2-line s-16 align-middle"></i></button>
+                                      <button type="button" id="toggleNotes" class="btn btn-primary"><i class="ri-eye-2-line s-16 align-middle"></i></button>
+                                      </div>
+                                      </div>
+                                      </div>
+
+                                      <div class="card-body border border-dashed border-end-0 border-start-0">
+
+                                              <div class="row g-3">
+                                                  <div class="col-xxl-5 col-sm-6">
+                                                      <div class="search-box">
+                                                          <input type="text" id="filter_search" class="form-control search" placeholder="Search...">
+                                                          <i class="ri-search-line search-icon"></i>
+                                                      </div>
+                                                  </div>
+                                                  <!--end col-->
+                                                  <div class="col-xxl-2 col-sm-4">
+                                                      <div>
+                                                          <select id="filter_reseller" name="filter_reseller" class="form-control select2 select2-hidden-accessible" data-select2-id="select2-data-filter_reseller" tabindex="-1" aria-hidden="true">
+                                                          <option value="" data-select2-id="select2-data-2-a9a7">Select Reseller</option>
+                                                                                                                        <option value="109252">abdessamad07</option>
+                                                                                                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-1-1vfl" style="width: 300.4px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-filter_reseller-container" aria-controls="select2-filter_reseller-container"><span class="select2-selection__rendered" id="select2-filter_reseller-container" role="textbox" aria-readonly="true" title="Select Reseller">Select Reseller</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                      </div>
+                                                  </div>
+                                                  <!--end col-->
+                                                  <div class="col-xxl-1 col-sm-4">
+                                                      <div>
+                                                        <select id="filter_state" class="form-select show select2 select2-hidden-accessible" data-select2-id="select2-data-filter_state" tabindex="-1" aria-hidden="true">
+                                                          <option value="0" selected="" data-select2-id="select2-data-4-z4ed">All</option>
+                                                          <option value="1">Active</option>
+                                                          <option value="5">Online</option>
+                                                          <option value="2">Almost Expired</option>
+                                                          <option value="3">Expired</option>
+                                                          <option value="4">Disabled</option>
+                                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-3-zktk" style="width: 300.4px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-filter_state-container" aria-controls="select2-filter_state-container"><span class="select2-selection__rendered" id="select2-filter_state-container" role="textbox" aria-readonly="true" title="All">All</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-xxl-2 col-sm-4">
+                                                      <div>
+                                                        <select id="filter_template" class="form-select show select2 select2-hidden-accessible" data-select2-id="select2-data-filter_template" tabindex="-1" aria-hidden="true">
+                                                          <option value="0" selected="" data-select2-id="select2-data-6-3kcy">All</option>
+                                                                                                                          <option value="67571">kk</option>
+                                                                                                                          <option value="67572">aa</option>
+                                                                                                                          <option value="67573">mmmmmmmmmmms</option>
+                                                                                                                      </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-5-gwoe" style="width: 300.4px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-filter_template-container" aria-controls="select2-filter_template-container"><span class="select2-selection__rendered" id="select2-filter_template-container" role="textbox" aria-readonly="true" title="All">All</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-xxl-2 col-sm-4">
+                                                      <div>
+                                                        <select id="filter_show" class="form-select show select2 select2-hidden-accessible" data-select2-id="select2-data-filter_show" tabindex="-1" aria-hidden="true">
+                                                                                                                        <option selected="" value="15" data-select2-id="select2-data-8-09aq">15</option>
+                                                                                                                        <option value="25">25</option>
+                                                                                                                        <option value="50">50</option>
+                                                                                                                        <option value="100">100</option>
+                                                                                                                      </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-7-09sm" style="width: 300.4px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-filter_show-container" aria-controls="select2-filter_show-container"><span class="select2-selection__rendered" id="select2-filter_show-container" role="textbox" aria-readonly="true" title="15">15</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                                      </div>
+                                                  </div>
+                                                  <!--end col-->
+                                              </div>
+                                              <!--end row-->
+
+                                      </div>
+
+
+                                      <div class="card-body">
+                                        <div style="min-height: 500px !important;overflow-x: auto !important;display: block; width: 100%;">
+                                                            <div id="datatable-users_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div id="datatable-users_processing" class="dataTables_processing card" style="display: none;">Processing...</div><table class="table table-hover dt-responsive table-striped nowrap align-middle mb-0 dataTable no-footer" id="datatable-users" style="width: 100%;" aria-describedby="datatable-users_info">
+                                                                <thead>
+                                                                    <tr><th class="wd-10p gridjs-th sorting_disabled" rowspan="1" colspan="1" aria-label="Username" style="width: 89.2px;">Username</th><th class="wd-10p gridjs-th sorting_disabled" rowspan="1" colspan="1" aria-label="Password" style="width: 81.2px;">Password</th><th class="wd-5p gridjs-th text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Link" style="width: 58.2px;">Link</th><th class="wd-10p gridjs-th sorting" tabindex="0" aria-controls="datatable-users" rowspan="1" colspan="1" aria-label="Expire: activate to sort column ascending" style="width: 57.8px;">Expire</th><th class="wd-5p gridjs-th text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Package" style="width: 63.2px;">Package</th><th class="wd-15p gridjs-th sorting_disabled" rowspan="1" colspan="1" aria-label="Notes" style="width: 38.2px;">Notes</th><th class="wd-10p gridjs-th sorting_disabled" rowspan="1" colspan="1" aria-label="Reseller" style="width: 96.2px;">Reseller</th><th class="wd-1p gridjs-th text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Active" style="width: 84.2px;">Active</th><th class="wd-1p gridjs-th text-center sorting_disabled" rowspan="1" colspan="1" aria-label="STB" style="width: 44.2px;">STB</th><th class="wd-5p gridjs-th text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Speed" style="width: 40.2px;">Speed</th><th class="wd-1p gridjs-th text-center sorting_disabled" rowspan="1" colspan="1" aria-label="CON" style="width: 28.2px;">CON</th><th class="wd-1p gridjs-th sorting_disabled" rowspan="1" colspan="1" aria-label="Watching" style="width: 60.2px;">Watching</th><th class="wd-10p gridjs-th text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Created" style="width: 79.2px;">Created</th><th class="wd-5p gridjs-th text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Country" style="width: 51.2px;">Country</th><th class="wd-10p gridjs-th action-menu text-center sorting_disabled" rowspan="1" colspan="1" aria-label="Action" style="width: 41.2px;">Action</th></tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr class="table-warning odd"><td>f11d568e88cd</td><td>86547a199b</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm show" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Link</button><div class="dropdown-menu show" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 29px, 0px);" data-popper-placement="bottom-start"><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323095', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323095', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323095', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323095', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323095', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323095', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-29</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8323095, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-warning">Almost Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-28</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8323095', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8323095, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8323095, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('SqVZExgAUpcyejBMLLV3e_sLgA8TWw8UGYMxZ_wroGnMU3e4b5kKsMnYMe60judfqwu925bIuYufGIUXE7PFnQ--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8323095, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="table-warning even"><td>03158e16aa4e</td><td>f86b26c7e1</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323068', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323068', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323068', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323068', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323068', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8323068', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-29</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8323068, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-warning">Almost Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-28</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8323068', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8323068, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8323068, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('l_cxqV5Og1Is.sbQ4rU9nEr74vZJzY3hoxFIIxWA4DkgMcbRRKAZhMRBvY_lSeV0xNFWTYFCRCK3S.5aRM8q.A--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8323068, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="table-warning odd"><td>9c44a3869488</td><td>0af90ffd9d</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8321868', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8321868', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8321868', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8321868', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8321868', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8321868', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-29</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8321868, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-warning">Almost Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-28</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8321868', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8321868, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8321868, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('lyfjAYCmpK9ZkITjq4BREayBpWWY2RvdPkhmCtZJ0P8NexTVJlAH6TQJN9F0nH_mqmA6UXR0B0HrkB7jo0OItA--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8321868, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="table-warning even"><td>3645f7f06501</td><td>9e3b368944</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8314810', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8314810', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8314810', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8314810', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8314810', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8314810', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-28</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8314810, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-warning">Almost Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-27</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8314810', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8314810, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8314810, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('5tn8TrIS6txyute35vDgSOK0naENK8b30ATlt_eIQoJdUIUviUJPd7rGt_9xGbR0FgOwOlECgjgvCwyuOGhagQ--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8314810, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="odd"><td>acb115e42be5</td><td>aeb0798215</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8302043', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8302043', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8302043', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8302043', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8302043', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8302043', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-27</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8302043, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td> </td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-26</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8302043', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8302043, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8302043, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('3nwrLsW2v47lwM.9_XubhVBpr1Dwu1ebIKUMD3B0aysBHvlHFYfvlfBg50yAH.zwv58BUfzgGwTnUEk4mfv07g--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8302043, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="even"><td>cda27c977d7d</td><td>7548a0d963</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8297475', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8297475', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8297475', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8297475', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8297475', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8297475', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-26</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8297475, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-25</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8297475', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8297475, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8297475, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('9R4u.o7sdKitL_NmtItZrY49dWMIQxHgEis02cF9exRMp2Lu4mH4XCN.XLrspx1R2ULXYmb.5dmEhopl_OSiYA--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8297475, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="odd"><td>19010c1420fc</td><td>ccc1fbc703</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8294229', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8294229', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8294229', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8294229', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8294229', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8294229', 'openLink_my_vps');">My VPS</a></div></div></td><td>2027-04-25</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8294229, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-success">Yes</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-25</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8294229', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8294229, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8294229, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('BtHWkXYWme26yDSxFCaqBSKWlsz.FpgVkbOHR4lq0tqSTro1XkKzp6XQl4R8jzR55z5fely3dX8ZgUze3hCp.A--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8294229, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="even"><td>23e9cb14a109</td><td>46bddef550</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280463', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280463', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280463', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280463', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280463', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280463', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-25</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8280463, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-24</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8280463', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8280463, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8280463, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('DMb6KIrVnYwonarXxuUv6hBpnkNrHlI70Kvt5Y4lcE7toAxjbpbGFGEDKJ1Jm9vbebRst.VnuKlHU.Sa_lVurQ--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8280463, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="odd"><td>89784b6f8657</td><td>f2a4be70e6</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280119', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280119', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280119', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280119', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280119', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8280119', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-25</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8280119, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-24</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8280119', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8280119, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8280119, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('gbP5jY27.vcx5iGD__pckH658VnOFqHeJTbrYtdBlrIiS6sFe.1FjqkovNPw_Pbnos3EiJtoH5to878qUPq2VQ--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8280119, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="even"><td>fc393e6fdb86</td><td>6ab0f8252c</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8277617', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8277617', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8277617', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8277617', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8277617', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8277617', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-25</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8277617, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-24</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8277617', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8277617, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8277617, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('FnSq5hWTFyhmBsFog8CCy3CMEaKP_BbX8H314JCBVevC40hqMaMBRSQPIPPBzmz3Wia0P48FHeffmW_aob3XJw--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8277617, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="odd"><td>96315558f68f</td><td>3adfc3f319</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8271618', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8271618', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8271618', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8271618', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8271618', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8271618', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-24</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8271618, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td> </td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-23</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8271618', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8271618, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8271618, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('vYzK7fDZ.yjpv0eOAza8IXCs1q1RCBpEHo4yL8Fjp4PYQq2UXeyaChudfSrMCbl6FAyf9XeltotBt083L3Gm.Q--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8271618, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="even"><td>e16e1c5090ad</td><td>cbaa8cca2a</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267448', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267448', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267448', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267448', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267448', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267448', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-23</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8267448, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-22</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8267448', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8267448, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8267448, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('6ao7GX0mJxnLH5VQUV_5glFub3yqUyeWbUL_1wVipNYWxRYn8Pzk8AEPcW8om7uc41Fjtzkbn1TASzpwgrzwZA--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8267448, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="odd"><td>43b94f16ec4c</td><td>aeef524499</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267289', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267289', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267289', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267289', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267289', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8267289', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-23</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8267289, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-22</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8267289', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8267289, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8267289, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('ihOPk0ZQP629IdMqsS_q6phivi3XtyaDveoPpq4yU8srKljHRBGHG5myn6jwt6e.lU0ndroQjLQDwPLuNRdzhw--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8267289, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="even"><td>d1c90e414ac4</td><td>af86646a62</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8266596', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8266596', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8266596', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8266596', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8266596', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8266596', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-22</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8266596, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-22</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8266596', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8266596, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8266596, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('OcxDGNXIBmK1xWim.MyhlfknUKHIpj7IPLdoHyu32TjzvVl.zFUiVwYHQ667XZA1..lTMIUqfJS_pddLanW9Xg--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8266596, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr><tr class="odd"><td>862275cd58c2</td><td>ce7c3d600c</td><td class=" text-center"><div class="btn-group material-shadow"><button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button><div class="dropdown-menu" style=""><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'openLink', 'wd-card');">WD-Card</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'openLink', 'cloud');">Cloud</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'openLink', 'cloud_pro');">Cloud Pro</a><a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'openLink', 'tvsmarters');">Smarters TV LG &amp; Samsung</a><div class="dropdown-divider"></div><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8265087', 'openLink_my_wild');">My WD-Card</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8265087', 'openLink_my_vpn');">My Cloud</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8265087', 'openLink_my_cloud_pro');">My Cloud Pro</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8265087', 'openLink_my');">My Host</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8265087', 'openLink_my_matrix');">My Matrix</a><a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onclick="api('8265087', 'openLink_my_vps');">My VPS</a></div></div></td><td>2026-04-23</td><td class=" text-center"><button class="btn btn-primary btn-block btn-sm" onclick="api(8265087, 'package');" data-bs-target="#myModal" data-bs-toggle="modal" href="">
+                                Package
+                            </button></td><td></td><td>abdessamad07</td><td class=" text-center"><span class="badge bg-danger">Expired</span></td><td class=" text-center"><span class="badge badge-soft-danger">Offline</span></td><td class=" text-center"></td><td class=" text-center">0/1</td><td></td><td class=" text-center">2026-04-22</td><td class=" text-center"></td><td class=" text-center"><div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style=""><li><a class="dropdown-item" onclick="api('8265087', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li><li><a class="dropdown-item" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li><li><a class="dropdown-item" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li><li><a class="dropdown-item text-warning" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li><li><a class="dropdown-item text-danger" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> Switch to VPN</a></li><div class="dropdown-divider"></div><li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api(8265087, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li><li><a class="dropdown-item" onclick="api(8265087, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li><li><a class="dropdown-item" onclick="api('Cqi4HRN_eKVot5lI_E9FrDHaLooG1Ty_wfvfBYE.4rm5wsH73rYhyAQ3wuCX4jjVXlItVxY2YgTV59.BIbFwVQ--', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li><div class="dropdown-divider"></div><li><a class="dropdown-item text-danger" onclick="api(8265087, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li></ul></div></td></tr></tbody>
+                                                            </table><div class="dataTables_info" id="datatable-users_info" role="status" aria-live="polite">Showing 1 to 15 of 16 entries</div><div class="dataTables_paginate paging_simple_numbers" id="datatable-users_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="datatable-users_previous"><a href="#" aria-controls="datatable-users" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="datatable-users" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="datatable-users" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item next" id="datatable-users_next"><a href="#" aria-controls="datatable-users" data-dt-idx="3" tabindex="0" class="page-link">Next</a></li></ul></div></div>
+                                      </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <script>document.write(new Date().getFullYear())</script>2026 © 8K Gold.
+        </div>
+        <div class="col-sm-6">
+            <div class="text-sm-end d-none d-sm-block">
+                8K
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-primary btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+<!-- Default Modals -->
+<div id="myModal" class="modal fade zoomIn" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal-dialog">
+<div class="modal-content">
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+    <!-- JAVASCRIPT -->
+<script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/libs/simplebar/simplebar.min.js"></script>
+<script src="assets/libs/node-waves/waves.min.js"></script>
+<script src="assets/libs/feather-icons/feather.min.js"></script>
+<script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+<script src="assets/js/plugins.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="text/javascript" src="assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+<script type="text/javascript" src="assets/libs/flatpickr/flatpickr.min.js"></script>
+
+<script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--datatable js-->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/nestable.js"></script>
+
+    <script>
+    function generate(rID, rType){
+      $.getJSON({url:"options_list?reqvalue="+rType+"&id="+rID,cache:false,success:function(data){
+            if(data.result === true){
+              $.toast({bgColor: '#0ab39c',position: 'top-right',text: 'Generate Success.'});
+              $("#datatable-users").DataTable().ajax.reload(null, false);
+            } else {
+              $.toast({bgColor: '#f06548',position: 'top-right',text: 'Generate failed, please try again soon.'});
+            }
+      }});
+    }
+    $('.select2').select2();
+var rLength = 15;
+
+    function api(rID, rType, actionType = null) {
+      let url = `options_list.php?reqvalue=${rType}&sub=&id=${rID}`;
+
+      if (actionType) {
+          url += `&action=${actionType}`;
+      }
+        $.ajax({url:url,cache:false,success:function(data){
+          if ($.trim(data)) {
+            if(rType == 'edit_device' || rType == 'paid_proxy'){
+              $(".modal-dialog").addClass( "modal-lg" );
+              $(".modal-dialog").removeClass( "modal-dialog-scrollable" );
+            } else if (rType == 'package'){
+              $(".modal-dialog").addClass( "modal-dialog-scrollable" );
+              $(".modal-dialog").removeClass( "modal-lg" );
+            } else if (rType == 'lock_asn'){
+              $.toast({bgColor: '#0ab39c',position: 'top-right',text: 'ASN Lock Updated.'});
+              $("#datatable-users").DataTable().ajax.reload(null, false);
+            } else if (rType == 'clear_isp'){
+              $.toast({bgColor: '#0ab39c',position: 'top-right',text: 'Clear ISP Success.'});
+            } else {
+              $(".modal-dialog").removeClass( "modal-lg" );
+              $(".modal-dialog").removeClass( "modal-dialog-scrollable" );
+            }
+            $(".modal-content").html(data);
+          } else {
+            $.toast({bgColor: '#ff0000',position: 'top-right',text: 'An error occured while processing your request.'});
+          }
+        }});
+    }
+
+    function getState() {
+        return $("#filter_state").val();
+    }
+    function getFilter() {
+        return $("#filter_show").val();
+    }
+    function getReseller() {
+        return $("#filter_reseller").val();
+    }
+    function getTemplate() {
+        return $("#filter_template").val();
+    }
+    </script>
+    <script>
+      var registeredUsers = {"109252":{"id":109252,"user":"abdessamad07","resname":"abdessamad07"}};
+      var request_id = "lines";
+      let showFullNotes = true;
+      $("#datatable-users").DataTable({
+          language: { /* your existing language config */ },
+          responsive: false,
+          processing: true,
+          serverSide: true,
+          ajax: {
+              url: "./api_table.php",
+              data: function(d) {
+                  d.id = "lines",
+                  d.filter = getFilter(),
+                  d.state = getState(),
+                  d.reseller = getReseller(),
+                  d.template = getTemplate()
+              }
+          },
+          columns: [
+              { data: "id" },
+              { data: "username", render: function(data, type, row) {
+                  // build username + icons dynamically
+                  let html = data;
+                  if (row.custom_package != '0') html += ' <i class="ri-archive-line text-warning fs-12"></i>';
+                  if (row.rASN) html += ' <i class="ri-lock-fill text-info fs-12"></i>';
+                  if (row.bSwitchCloudIcon) html += ' <i class="ri-cloud-line text-danger fs-12"></i>';
+                  if (row.rAndroid) html += ' <i class="ri-android-line text-success fs-12" data-bs-toggle="tooltip" data-bs-placement="top" title="'+ row.rAndroid +'"></i>';
+                  if (row.rTv) html += ' <i class="ri-tv-line text-success fs-12" data-bs-toggle="tooltip" data-bs-placement="top" title="'+ row.rTv +'"></i>';
+                  return html;
+              }},
+              { data: "password" },
+              { data: "link_flag", render: function(data, type, row) {
+                  //return '<button class="btn btn-info btn-sm">Link</button>'; // simple example
+                  let rLink = data;
+                  rLink = `<div class="btn-group material-shadow">`;
+                  rLink += `<button type="button" class="btn btn-info dropdown-toggle material-shadow-none btn-sm" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link</button>`;
+                  rLink += `<div class="dropdown-menu" style="">`;
+                  // if($rSettings['generate_subdomain']){
+                  //   if($rRow['subdomain_url'] == 'allow'){
+                  if(row.generate_subdomain){
+                    rLink += `<a class="dropdown-item text-danger" href="#"  onClick="generate('${row.encrypted_id}', 'generate');">Generate</a>`;
+                  } else {
+                    rLink += `<a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.encrypted_id}', 'openLink', 'wd-card');">WD-Card</a>`;
+                  }
+                  //   } else {
+
+                  //   }
+                  // } else {
+                  //   rLink += '<a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('.$rRow["id"].', \'openLink\');">Link</a>`;
+                  // }
+                  rLink += `<a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.encrypted_id}', 'openLink', 'cloud');">Cloud</a>`;
+                  rLink += `<a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.encrypted_id}', 'openLink', 'cloud_pro');">Cloud Pro</a>`;
+                  rLink += `<a class="dropdown-item text-info" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.encrypted_id}', 'openLink', 'tvsmarters');">Smarters TV LG & Samsung</a>`;
+                  rLink += `<div class="dropdown-divider"></div>`;
+                  rLink += `<a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.id}', 'openLink_my_wild');">My WD-Card</a>`;
+                  rLink += `<a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.id}', 'openLink_my_vpn');">My Cloud</a>`;
+                  rLink += `<a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.id}', 'openLink_my_cloud_pro');">My Cloud Pro</a>`;
+                  rLink += `<a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.id}', 'openLink_my');">My Host</a>`;
+                  rLink += `<a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.id}', 'openLink_my_matrix');">My Matrix</a>`;
+                  rLink += `<a class="dropdown-item text-warning" data-bs-target="#myModal" data-bs-toggle="modal" href="" onClick="api('${row.id}', 'openLink_my_vps');">My VPS</a>`;
+                  rLink += `</div>`;
+                  rLink += `</div>`;
+                  return rLink
+              }},
+              { data: "exp_date_flag", render: function(data, type, row) {
+                  if (!data) return "Never";
+                  return data;
+              }},
+              { data: "package_flag",
+                render: function(data, type, row) {
+                    if(!data) return ''; // no package button
+                    return `<button class="btn btn-primary btn-block btn-sm"
+                                    onClick="api(${row.id}, 'package');"
+                                    data-bs-target="#myModal"
+                                    data-bs-toggle="modal"
+                                    href="">
+                                Package
+                            </button>`;
+                }
+              },
+              { data: "reseller_notes",
+                render: function (data, type, row) {
+                    if (!data) return "";
+
+                    if (type === "display") {
+                        if (showFullNotes) {
+                            return data;
+                        } else {
+                            return "<i>...</i>";
+                        }
+                    }
+
+                    return data;
+                }
+              },
+              { data: "owner",
+                render: function(data, type, row) {
+                  // 'data' is row.owner, which is the ID
+                  if (registeredUsers[data]) {
+                      return registeredUsers[data].user; // return the name
+                  } else {
+                      return data; // fallback to ID if not found
+                  }
+              }},
+              { data: "status", render: function(data) {
+                  switch(data) {
+                      case 'active': return '<span class="badge bg-success">Yes</span>';
+                      case 'expired': return '<span class="badge bg-danger">Expired</span>';
+                      case 'almost_expired': return '<span class="badge bg-warning">Almost Expired</span>';
+                      case 'disabled': return '<span class="badge bg-danger">No</span>';
+                      case 'admin_disabled': return '<span class="badge bg-danger">Admin Disabled</span>';
+                  }
+              }},
+              { data: "active", render: function(data) {
+                  return data == "online" ? '<span class="badge badge-soft-success">Online</span>' : '<span class="badge badge-soft-danger">Offline</span>';
+              }},
+              { data: "speed_percent", render: function(data) {
+                  if (!data) return '';
+                  let color = data >= 70 ? 'success' : (data >= 40 ? 'warning' : 'danger');
+                  return `<div class="progress"><div class="progress-bar bg-${color}" style="width:${data}%"></div></div>`;
+              }},
+              { data: "connections" },
+              { data: "watching" },
+              { data: "created_at"},
+
+              { data: "country_code", render: function(data) {
+                  return data ? `<img src="https://flagcdn.com/h20/${data.toLowerCase()}.png">` : '';
+              }},
+              {
+                  data: null,
+                  render: function(data, type, row) {
+                      let encrypted_id = row.encrypted_id;
+                      let html = `<div class="dropdown">
+                          <a href="#" role="button" data-bs-toggle="dropdown" class="link-primary">
+                              <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style="">`;
+
+                      html += `<li><a class="dropdown-item" onClick="api('${row.id}', 'edit_device');" data-bs-toggle="modal" data-bs-target="#myModal" href="#">
+                                  <i class="ri-pencil-line text-muted fs-16 align-middle me-1"></i> Edit                                   </a></li>`;
+
+                      html += `<li><a class="dropdown-item" onClick="api('${encrypted_id}', 'kick_user');" href="#">
+                                  <i class="ri-forbid-2-line text-muted fs-16 align-middle me-1"></i> Kick Out
+                               </a></li>`;
+
+                      html += `<li><a class="dropdown-item" onClick="api('${encrypted_id}', 'clear_isp');" href="#">
+                                  <i class="ri-router-line text-muted fs-16 align-middle me-1"></i> Reset ISP Lock
+                               </a></li>`;
+                      if(row.rASN) {
+                      html += `<li><a class="dropdown-item text-warning" onClick="api('${encrypted_id}', 'lock_asn');" href="#"><i class="ri-lock-unlock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock OFF</a></li>`;
+                      } else {
+                      html += `<li><a class="dropdown-item text-warning" onClick="api('${encrypted_id}', 'lock_asn');" href="#"><i class="ri-lock-fill text-warning fs-16 align-middle me-1"></i> Turn ISP Lock ON</a></li>`;
+                      }
+                      if(!row.bSwitchCloudIcon){
+                        cloudText = 'Switch to VPN';
+                      } else {
+                        cloudText = 'Disable VPN';
+                      }
+                      if(row.bSwitchCloud) html += `<li><a class="dropdown-item text-danger" onClick="api('${encrypted_id}', 'switch_cloud');" data-bs-target="#myModal" data-bs-toggle="modal" href="" data-tip="tooltip-primary"><i class="ri-cloud-line text-danger fs-16 align-middle me-1"></i> ` + cloudText + `</a></li>`;
+                      if(row.bSharkVPN) html += `  <li><a class="dropdown-item text-info" onClick="api('${encrypted_id}', 'paid_proxy');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i style="padding-bottom:8px;" class="ri-shark text-info fs-16 align-middle me-1"></i>SURF VPN</a></li>`;
+
+
+                      if(!row.is_mag && !row.is_e2){
+                      html += `<div class="dropdown-divider"></div>`;
+                      html += `<li class="dropdown-submenu">
+                                  <a class="dropdown-item dropdown-toggle" href="#"><i class="ri-file-copy-2-line text-muted fs-16 align-middle me-1"></i> Copy M3U</a>
+                                  <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" onClick="api('${encrypted_id}', 'copy_m3u','m3u')" data-a="m3u">Copy Host</a></li>
+                                      <li><a class="dropdown-item" onClick="api('${encrypted_id}', 'copy_m3u','vpn')" data-a="vpn">Copy Cloud</a></li>
+                                      <li><a class="dropdown-item" onClick="api('${encrypted_id}', 'copy_m3u','my_m3u')" data-a="my_m3u">Copy my Host</a></li>
+                                      <li><a class="dropdown-item" onClick="api('${encrypted_id}', 'copy_m3u','my_vpn')" data-a="my_vpn">Copy my Cloud</a></li>
+                                  </ul>
+                               </li>`;
+                      }
+                      html += `<div class="dropdown-divider"></div>`;
+                      html += `<li><a class="dropdown-item" onClick="api(${row.id}, 'move_line');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-server-line text-muted fs-16 align-middle me-1"></i> Move</a></li>`;
+                      html += `<li><a class="dropdown-item" onClick="api(${row.id}, 'renew');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-exchange-dollar-line text-muted fs-16 align-middle me-1"></i> Renew</a></li>`;
+                      if(row.is_mag){
+                        html += `<div class="dropdown-divider"></div>`;
+                        html += `<li><a class="dropdown-item" onClick="api(${row.id}, 'event_send_msg');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-mail-send-line text-muted fs-16 align-middle me-1"></i> Send Message</a></li>`;
+                        html += `<li><a class="dropdown-item" onClick="api(${row.id}, 'event_reboot');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-restart-line text-muted fs-16 align-middle me-1"></i> Reboot</a></li>`;
+                        html += `<li><a class="dropdown-item" onClick="api(${row.id}, 'move_mac');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-exchange-box-line text-muted fs-16 align-middle me-1"></i> Change MAC</a></li>`;
+                      }
+                      if(!row.is_mag && !row.is_e2){
+                      html += `<div class="dropdown-divider"></div>`;
+                      if(row.rTv) {
+                      html += `<li><a class="dropdown-item" onClick="api('${encrypted_id}', 'update_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-refresh-line text-muted fs-16 align-middle me-1"></i> Update TV</a></li>`;
+                      html += `<li><a class="dropdown-item text-warning" onClick="api(\'${encrypted_id}', 'delete_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-delete-bin-2-line text-warning fs-16 align-middle me-1"></i> Delete TV</a></li>`;
+                      } else {
+                      html += `<li><a class="dropdown-item" onClick="api('${encrypted_id}', 'send_to_tv');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-tv-2-line text-muted fs-16 align-middle me-1"></i> Upload to Smart TV</a></li>`;
+                      }
+                      if(row.rAndroid) {
+                      html += `<li><a class="dropdown-item" onClick="api('${encrypted_id}', 'update_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-refresh-line text-muted fs-16 align-middle me-1"></i> Update Android APP</a></li>`;
+                      html += `<li><a class="dropdown-item text-warning" onClick="api(\'${encrypted_id}', 'delete_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-delete-bin-2-line text-warning fs-16 align-middle me-1"></i> Delete Android APP</a></li>`;
+                      } else {
+                      html += `<li><a class="dropdown-item" onClick="api('${encrypted_id}', 'send_to_android');" data-bs-target="#myModal" data-bs-toggle="modal" data-tip="tooltip-primary" href="#"><i class="ri-android-line text-muted fs-16 align-middle me-1"></i> Upload to Android APP</a></li>`;
+                      }
+                      }
+                      html += `<div class="dropdown-divider"></div>`;
+                      if(row.rRefund) html += `<li><a class="dropdown-item text-danger" onClick="api(${row.id}, 'refund');" data-bs-target="#myModal" data-bs-toggle="modal" href="#"><i class="ri-hand-coin-line fs-16 align-middle me-1"></i> Refund</a></li>`;
+
+                      html += `</ul></div>`;
+                      return html;
+                  }
+              }
+          ],
+          createdRow: function(row, data, dataIndex) {
+              if (data.active == "online") $(row).addClass("table-success");
+              else if (data.status == "almost_expired") $(row).addClass("table-warning");
+          },
+                        columnDefs: [
+              {"className": "text-center", "targets": [0,3,5,8,9,10,11,13,14,15]},
+              {"orderable": false, "targets": [0,1,2,3,5,6,7,8,9,10,11,12,13,14,15]},
+              {"className": "action-menu", "targets": [15]},
+              {"visible": false, "targets": [0]}
+          ],
+                        order: [[ 0, "desc" ]],
+          pageLength: rLength,
+          bLengthChange: false,
+          sDom: 'lrtip',
+          stateSave: false
+      });
+      let typingTimer;
+      const debounceTime = 1000; // wait 500ms after typing stops
+
+      $('#filter_search').on('keyup', function () {
+          clearTimeout(typingTimer);
+          let value = $(this).val();
+          typingTimer = setTimeout(function () {
+              $('#datatable-users').DataTable().search(value).draw();
+          }, debounceTime);
+      });
+      $('#download_excel').on('click', function () {
+          // Get the DataTable instance (replace '#myTable' with your actual table ID)
+          var table = $('#datatable-users').DataTable();
+          var params = table.ajax.params();
+
+          params.format = 'pdf';
+          params.is_export = '1';
+          params.is_mag_export = '0';
+          var url = 'api_export.php';
+
+          // Create hidden form to POST the parameters
+          var form = $('<form>', {
+              method: 'POST',
+              action: url,
+              target: '_blank'  // Opens download in new tab (optional, remove if not needed)
+          });
+          $.each(params, function(key, value) {
+              var input;
+              if (typeof value === 'object' && value !== null) {
+                  // For arrays/objects like order[], columns[], etc.
+                  input = $('<input>', {
+                      type: 'hidden',
+                      name: key,
+                      value: JSON.stringify(value)
+                  });
+              } else {
+                  input = $('<input>', {
+                      type: 'hidden',
+                      name: key,
+                      value: value
+                  });
+              }
+              form.append(input);
+          });
+
+          // Append form to body, submit, and remove
+          $('body').append(form);
+          form.submit();
+          form.remove();
+      });
+      $('#toggleNotes').on('click', function () {
+          showFullNotes = !showFullNotes;
+          $(this).html(showFullNotes ? '<i class="ri-eye-2-line s-16 align-middle"></i>': '<i class="ri-eye-close-line s-16 align-middle"></i>');
+
+          let table = $('#datatable-users').DataTable();
+          table.rows().invalidate().draw(false);
+      });
+      $('#filter_show').change(function(){
+              $('#datatable-users').DataTable().page.len($(this).val()).draw();
+      });
+      $('#filter_reseller').change(function(){
+              $('[data-toggle="tooltip"]').tooltip("hide");
+              $("#datatable-users").DataTable().ajax.reload( null, false );
+      });
+      $('#filter_state').change(function(){
+              $('[data-toggle="tooltip"]').tooltip("hide");
+              $("#datatable-users").DataTable().ajax.reload( null, false );
+      });
+      $('#filter_template').change(function(){
+              $('[data-toggle="tooltip"]').tooltip("hide");
+              $("#datatable-users").DataTable().ajax.reload( null, false );
+      });
+      function changeZoom() {
+          if ($("#datatable-users").hasClass("fs-5")) {
+              $("#datatable-users").removeClass("fs-5");
+              $("#datatable-users").addClass("fs-6");
+          } else {
+              $("#datatable-users").removeClass("fs-6");
+              $("#datatable-users").addClass("fs-5");
+          }
+          $("#datatable-users").DataTable().draw();
+      }
+      function clearFilters() {
+        $("#filter_search").val("").trigger('change');
+        $("#filter_reseller").val("").trigger('change');
+        $("#filter_state").val("").trigger('change');
+        $('#filter_show').val(rLength).trigger('change');
+        $('#datatable-users').DataTable().search($("#filter_search").val());
+        $('#datatable-users').DataTable().page.len(rLength);
+        $("#datatable-users").DataTable().page(0).draw('page');
+        $("#datatable-users").DataTable().ajax.reload( null, false );
+      }
+
+      </script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;33dc26b3520a47c6b8fc2d3fc9964d10&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+
+</div></body>
