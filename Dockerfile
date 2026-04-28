@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
-COPY automation.mjs server.mjs login.js ./
+COPY automation.mjs server.mjs dino-usecase.mjs strong-usecase.mjs login-dino.js login-strong.js ./
 
 ENV PORT=8080
 EXPOSE 8080
