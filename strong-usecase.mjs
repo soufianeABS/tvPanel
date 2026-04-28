@@ -6,6 +6,6 @@ export async function runStrongUseCase(opts = {}) {
 
 export async function runStrongCli() {
   const headless = process.env.HEADLESS === "true";
-  const keepOpenMs = Number(process.env.STRONG_KEEP_OPEN_MS || process.env.DINO_KEEP_OPEN_MS || "30000");
+  const keepOpenMs = 30000;
   await runStrongUseCase({ headless, keepOpenMs });
 }

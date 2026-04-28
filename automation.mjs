@@ -13,10 +13,8 @@ function envFirst(...keys) {
 
 const LOGIN_URL = "https://tvpluspanel.ru/login";
 const STRONG_LOGIN_URL = envFirst("STRONG_LOGIN_URL", "TVPLUS_STRONG_LOGIN_URL") || "https://8k.cms-only.ru/login";
-const ADDNEW_LINES_URL =
-  envFirst("DINO_ADDNEW_URL", "TVPLUS_ADDNEW_URL") || "https://tvpluspanel.ru/addnew?t=lines";
-const USERS_LINES_URL =
-  envFirst("DINO_USERS_LINES_URL", "TVPLUS_USERS_LINES_URL") || "https://tvpluspanel.ru/users?s=lines";
+const ADDNEW_LINES_URL = "https://tvpluspanel.ru/addnew?t=lines";
+const USERS_LINES_URL = "https://tvpluspanel.ru/users?s=lines";
 
 const PANEL_USERNAME = envFirst("DINO_USERNAME", "TVPLUS_USERNAME") || "abdessamad07";
 const PANEL_PASSWORD = envFirst("DINO_PASSWORD", "TVPLUS_PASSWORD") || "Azerty_0";
@@ -32,13 +30,9 @@ const CAPTCHA_POLL_MS = Number(
   envFirst("CAPTCHA_POLL_MS", "DINO_CAPTCHA_POLL_MS", "TVPLUS_CAPTCHA_POLL_MS") || "5000"
 );
 const DINO_URL_HOST = process.env.DINO_URL_HOST || "";
-const STRONG_LOGIN_SUCCESS_URL_REGEX =
-  envFirst("STRONG_LOGIN_SUCCESS_URL_REGEX", "TVPLUS_STRONG_LOGIN_SUCCESS_URL_REGEX");
-const STRONG_LOGIN_WAIT_AFTER_SUBMIT_MS = Number(
-  envFirst("STRONG_LOGIN_WAIT_AFTER_SUBMIT_MS", "TVPLUS_STRONG_LOGIN_WAIT_AFTER_SUBMIT_MS") || "15000"
-);
-const STRONG_OPEN_M3U_ADDNEW =
-  (envFirst("STRONG_OPEN_M3U_ADDNEW", "TVPLUS_STRONG_OPEN_M3U_ADDNEW") || "true").toLowerCase() === "true";
+const STRONG_LOGIN_SUCCESS_URL_REGEX = "";
+const STRONG_LOGIN_WAIT_AFTER_SUBMIT_MS = 15000;
+const STRONG_OPEN_M3U_ADDNEW = true;
 const STRONG_SUBSCRIPTION_VALUE = envFirst("STRONG_SUBSCRIPTION_VALUE", "TVPLUS_STRONG_SUBSCRIPTION_VALUE") || "5";
 const STRONG_BOUQUET_NAME = envFirst("STRONG_BOUQUET_NAME", "TVPLUS_STRONG_BOUQUET_NAME") || "kk";
 const STRONG_LINE_COUNTRY = envFirst("STRONG_LINE_COUNTRY");
@@ -829,11 +823,11 @@ async function addNewLine(page) {
  */
 export async function runAutomation(opts = {}) {
   const headless = opts.headless ?? false;
-  const skipAddLine = opts.skipAddLine ?? (envFirst("DINO_SKIP_ADD_LINE", "TVPLUS_SKIP_ADD_LINE") === "true");
+  const skipAddLine = opts.skipAddLine ?? false;
   const keepOpenMs =
     opts.keepOpenMs !== undefined
       ? opts.keepOpenMs
-      : Number(envFirst("DINO_KEEP_OPEN_MS", "TVPLUS_KEEP_OPEN_MS") || "0");
+      : 0;
 
   const browser = await chromium.launch({ headless, slowMo: headless ? 0 : 80 });
   const context = await browser.newContext();
@@ -846,7 +840,7 @@ export async function runAutomation(opts = {}) {
     if (!skipAddLine) {
       rawLink = await addNewLine(page);
     } else {
-      console.log("Skipping add line (DINO_SKIP_ADD_LINE=true).");
+      console.log("Skipping add line.");
     }
 
     if (keepOpenMs > 0) {
@@ -879,7 +873,7 @@ export async function runStrongLoginUseCase(opts = {}) {
   const keepOpenMs =
     opts.keepOpenMs !== undefined
       ? opts.keepOpenMs
-      : Number(envFirst("STRONG_KEEP_OPEN_MS", "DINO_KEEP_OPEN_MS", "TVPLUS_KEEP_OPEN_MS") || "0");
+      : 0;
 
   const panelUsername = envFirst("STRONG_USERNAME", "TVPLUS_STRONG_USERNAME") || PANEL_USERNAME;
   const panelPassword = envFirst("STRONG_PASSWORD", "TVPLUS_STRONG_PASSWORD") || PANEL_PASSWORD;
@@ -973,12 +967,12 @@ export async function runStrongLoginUseCase(opts = {}) {
 
 export async function runCli() {
   const headless = process.env.HEADLESS === "true";
-  const keepOpenMs = Number(envFirst("DINO_KEEP_OPEN_MS", "TVPLUS_KEEP_OPEN_MS") || "30000");
+  const keepOpenMs = 30000;
   await runAutomation({ headless, keepOpenMs });
 }
 
 export async function runStrongCli() {
   const headless = process.env.HEADLESS === "true";
-  const keepOpenMs = Number(envFirst("STRONG_KEEP_OPEN_MS", "DINO_KEEP_OPEN_MS", "TVPLUS_KEEP_OPEN_MS") || "30000");
+  const keepOpenMs = 30000;
   await runStrongLoginUseCase({ headless, keepOpenMs });
 }

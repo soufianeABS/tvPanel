@@ -33,7 +33,7 @@ app.get("/creatTestDino", async (_req, res) => {
     const result = await runDinoUseCase({ headless, keepOpenMs: 0 });
     if (!result) {
       return res.status(400).json({
-        error: "Flow returned no credentials (DINO_SKIP_ADD_LINE may be set)."
+        error: "Flow returned no credentials."
       });
     }
     console.log("[api:/creatTestDino] response payload:", result);

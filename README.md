@@ -119,7 +119,7 @@ docker run --rm -p 8080:8080 --env-file .env tvplus-automation
 ## Flow (CLI and API)
 
 1. Starts with captcha challenge handling, then fills `#uname` / `#upass`, and submits login.
-2. Opens `https://tvpluspanel.ru/addnew?t=lines` (or `DINO_ADDNEW_URL`).
+2. Opens `https://tvpluspanel.ru/addnew?t=lines`.
 3. Sets subscription (`#add_sub` → internal `#add_packid` via the page’s own `change` handler), country, optional notes, then **Select Package → Select All**, **Select VOD → Select All**, unchecks **1 - 4K UHD** (`#pack-fill-1`), then clicks **Confirm** (`#addnewButton` → `submitAddNew` / `api.php?action=add_new`).
 4. Waits for redirect to `./users?s=lines` when the API succeeds (same as the page script).
 5. On [users?s=lines](https://tvpluspanel.ru/users?s=lines), opens the **Link** dropdown on the **first table row** and the **Link** menu item; reads **`#link`**. The CLI logs it; **GET `/creatTestDino`** returns it as JSON (`url`, `username`, `password`, `playlistUrl`).
@@ -137,23 +137,15 @@ Copy `.env.example` to `.env` and adjust.
 | `CAPTCHA_POLL_MS` | Poll interval for captcha result (default `5000`) |
 | `DINO_URL_HOST` | Optional override for JSON response `url` (example: `http://line.playmodx.com`) |
 | `HEADLESS` | `true` only if you do not need captcha UI |
-| `DINO_SKIP_ADD_LINE` | `true` to stop Dino flow after login |
-| `DINO_ADDNEW_URL` | Default `https://tvpluspanel.ru/addnew?t=lines` |
-| `DINO_USERS_LINES_URL` | Documented default list URL (logic uses current page URL after redirect) |
 | `DINO_LINE_SUBSCRIPTION` | `0`–`5` = 2Y, 1Y, 6M, 3M, 1M, 1D (default **1 day** = `5`) |
 | `DINO_LINE_COUNTRY` | ISO code or empty for Auto |
 | `DINO_LINE_NOTES` | Optional `#add_comment` |
-| `DINO_KEEP_OPEN_MS` | How long to keep browser open for Dino CLI |
 | `STRONG_LOGIN_URL` | Login page for strong use case (default `https://8k.cms-only.ru/login`) |
 | `STRONG_USERNAME` / `STRONG_PASSWORD` | Optional credentials override for strong flow (falls back to Dino credentials) |
-| `STRONG_LOGIN_SUCCESS_URL_REGEX` | Optional success URL regex to validate post-login redirect |
-| `STRONG_LOGIN_WAIT_AFTER_SUBMIT_MS` | Post-submit wait when keep-open is 0 (default `15000`) |
-| `STRONG_OPEN_M3U_ADDNEW` | `true` to click sidebar path `M3U` → `Add New` after login (default `true`) |
 | `STRONG_SUBSCRIPTION_VALUE` | Subscription value for strong Add New (default `5`, one day) |
 | `STRONG_BOUQUET_NAME` | Bouquet name to select in strong flow (default `kk`) |
 | `STRONG_LINE_COUNTRY` | Optional country value/text to select in strong Add New form |
 | `STRONG_LINE_NOTES` | Optional note/comment for strong Add New form |
-| `STRONG_KEEP_OPEN_MS` | How long to keep browser open for strong CLI |
 | `PORT` | HTTP server port (default `8080`) |
 | `API_HEADFUL` | If `true`, API runs with a visible browser (still need captcha solved manually) |
 
